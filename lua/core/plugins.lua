@@ -170,6 +170,12 @@ return packer.startup({
         })
         use({
             'ggandor/leap.nvim',
+            requires = {
+                'ggandor/flit.nvim',
+                config = function()
+                    require('flit').setup()
+                end,
+            },
             config = function()
                 require('leap').set_default_keymaps()
             end,
