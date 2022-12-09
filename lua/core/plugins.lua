@@ -118,9 +118,7 @@ return packer.startup({
                 'smiteshp/nvim-navic',
                 'kyazdani42/nvim-web-devicons',
             },
-            config = function()
-                require('barbecue').setup()
-            end,
+            config = plugin_config('barbecue'),
         })
 
         -----------------
