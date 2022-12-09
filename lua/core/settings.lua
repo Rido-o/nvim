@@ -35,9 +35,7 @@ local default_options = {
     list = true,
     listchars = { trail = '-', tab = '  ' }, -- 'trail:­,tab:  ,extends:»,precedes:«,nbsp:⣿,eol:¬'
     laststatus = 3, -- Enables global statusline
-    -- cmdheight = 0,                  -- Makes command line height 0 -- In preperation for when it is added to stable
     guifont = { 'Hack Nerd Font', ':h11' }, -- Font for gui nvim
-    mouse = 'a', -- Enabled by default in 0.8
 }
 
 -- Set options
@@ -56,8 +54,7 @@ if string.find(raw_os, 'Windows') then
 elseif raw_os == 'Linux' then
     vim.g.os = 'Linux'
     -- Get Distro
-    local distro = vim.fn.system("sed -n 's/^DISTRIB_ID=//p' /etc/*-release | tr -d '\n'")
-    vim.g.distro = distro
+    vim.g.distro = vim.fn.system("sed -n 's/^DISTRIB_ID=//p' /etc/*-release | tr -d '\n'")
 end
 
 -- Disable auto-commenting
