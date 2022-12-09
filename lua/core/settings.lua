@@ -1,6 +1,4 @@
------------------
--- Settings
------------------
+-- Options
 local default_options = {
     background = 'dark',
     encoding = 'utf-8', -- The encoding displayed is UTF-8 by default
@@ -44,8 +42,8 @@ for k, v in pairs(default_options) do
 end
 
 -- Set leader keys
-vim.g.mapleader = ' ' -- Map leader key
-vim.g.maplocalleader = ',' -- Map local leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ','
 
 -- Get OS
 local raw_os = vim.loop.os_uname().sysname
@@ -63,7 +61,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
     command = 'setlocal formatoptions-=cro',
 })
 
--- Set shell to Windows PowerShell if on windows. Relies on function in init.lua
+-- Set shell to Windows PowerShell if on windows
 vim.cmd([[
 if g:os == 'Windows'
     set shell=powershell shellquote= shellpipe=\| shellxquote=
