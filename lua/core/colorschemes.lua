@@ -9,8 +9,7 @@ local themes = {
     end,
 }
 
--- Select theme
--- pywal, tokyonight, kanagawa, miramare
+-- Select theme -- { pywal, tokyonight, kanagawa, miramare }
 pcall(function()
     local theme_name = 'kanagawa'
     pcall(themes[theme_name])
