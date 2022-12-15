@@ -212,7 +212,7 @@ return packer.startup({
             config = {
                 plugin_config('cmp'),
                 -- Enable friendly snippets
-                require('luasnip.loaders.from_vscode').lazy_load(),
+                require('luasnip.loaders.from_vscode').lazy_load(), -- TODO fix so it doesn't break initial install
             },
         })
         use({
