@@ -223,6 +223,7 @@ return packer.startup({
             'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate',
             config = plugin_config('treesitter'),
+            cond = vim.fn.executable('gcc') == 1,
         })
 
         ---------------
