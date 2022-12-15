@@ -33,7 +33,7 @@ local default_options = {
     list = true,
     listchars = { trail = '-', tab = '  ' }, -- 'trail:­,tab:  ,extends:»,precedes:«,nbsp:⣿,eol:¬'
     laststatus = 3, -- Enables global statusline
-    guifont = { 'Hack Nerd Font', ':h11' }, -- Font for gui nvim
+    guifont = { 'Hack Nerd Font Mono:h11' }, -- Font for gui nvim
 }
 
 -- Set options
