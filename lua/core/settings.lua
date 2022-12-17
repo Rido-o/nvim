@@ -1,5 +1,12 @@
+-- Set options
+local function options(table)
+    for k, v in pairs(table) do
+        vim.opt[k] = v
+    end
+end
+
 -- Options
-local default_options = {
+options({
     background = 'dark',
     encoding = 'utf-8', -- The encoding displayed is UTF-8 by default
     fileencoding = 'utf-8',
@@ -34,12 +41,7 @@ local default_options = {
     listchars = { trail = '-', tab = '  ' }, -- 'trail:­,tab:  ,extends:»,precedes:«,nbsp:⣿,eol:¬'
     laststatus = 3, -- Enables global statusline
     guifont = { 'Hack Nerd Font Mono:h11' }, -- Font for gui nvim
-}
-
--- Set options
-for k, v in pairs(default_options) do
-    vim.opt[k] = v
-end
+})
 
 -- Set leader keys
 vim.g.mapleader = ' '
@@ -61,11 +63,14 @@ vim.api.nvim_create_autocmd('BufEnter', {
     command = 'setlocal formatoptions-=cro',
 })
 
--- Set shell to Windows PowerShell if on windows
-vim.cmd([[
-if g:os == 'Windows'
-    set shell=powershell shellquote= shellpipe=\| shellxquote=
-    set shellcmdflag=-NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
-    set shellredir=\|\ Out-File\ -Encoding\ UTF8
+-- Set shell to Windows PowerShell if on windows -- :help shell-powershell
+if vim.g.os == 'Windows' then
+    options({
+        shell = 'pwsh.exe',
+        shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command',
+        shellxquote = '',
+        shellquote = '',
+        shellredir = '2>&1 | Out-File -Encoding UTF8 %s',
+        shellpipe = '2>&1 | Out-File -Encoding UTF8 %s',
+    })
 end
-]])
