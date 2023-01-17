@@ -62,7 +62,7 @@ local components = {
         text = function(buffer)
             return buffer.is_modified and '●' or ' '
         end,
-        fg = get_hex('WarningMsg', 'fg'),
+        fg = get_hex('Special', 'fg'), -- This should be WarningMsg
     },
 }
 
