@@ -111,3 +111,9 @@ end, { desc = 'Toggle comment' })
 -- Mouse keybinds
 map('n', '<ScrollWheelUp>', 'k', { desc = 'Scroll up' })
 map('n', '<ScrollWheelDown>', 'j', { desc = 'Scroll up' })
+
+-- Tab/Shift+tab to indent/dedent
+map('v', '<Tab>', '>gv', { desc = 'Indent line' })
+map('n', '<Tab>', 'v><C-\\><C-N>', { desc = 'Indent line' })
+map('v', '<S-Tab>', '<gv', { desc = 'Unindent line' })
+map('n', '<S-Tab>', 'v<<C-\\><C-N>', { desc = 'Unindent line' })
