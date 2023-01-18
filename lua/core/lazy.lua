@@ -214,23 +214,14 @@ require('lazy').setup({
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-cmdline' },
             -- Snippets
-            {
-                'L3MON4D3/LuaSnip',
-                config = {
-                    function()
-                        -- Enable friendly snippets
-                        require('luasnip.loaders.from_vscode').lazy_load() -- TODO fix so it doesn't break initial install
-                    end,
-                },
-            },
+            { 'L3MON4D3/LuaSnip' },
             { 'saadparwaiz1/cmp_luasnip' },
             { 'rafamadriz/friendly-snippets' },
         },
-        config = {
-            function()
-                require('plugins.cmp')
-            end,
-        },
+        config = function()
+            require('plugins.cmp')
+            require('luasnip.loaders.from_vscode').lazy_load() -- TODO fix so it doesn't break initial install
+        end,
     },
     {
         'glepnir/lspsaga.nvim',
