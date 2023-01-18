@@ -12,12 +12,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Source plugins config after saving
-vim.api.nvim_create_autocmd('BufWritePost', {
-    command = 'source <afile>',
-    group = vim.api.nvim_create_augroup('lazy', { clear = true }),
-    pattern = 'lazy.lua',
-})
-
 -- Plugin Management
 require('lazy').setup('plugins')
