@@ -15,10 +15,22 @@ return {
     ---------------------
     -- Colorschemes
     ---------------------
-    'AlphaTechnolog/pywal.nvim',
-    'folke/tokyonight.nvim',
-    'rebelot/kanagawa.nvim',
-    'franbach/miramare',
+    {
+        'AlphaTechnolog/pywal.nvim',
+        lazy = true,
+    },
+    {
+        'folke/tokyonight.nvim',
+        lazy = true,
+    },
+    {
+        'rebelot/kanagawa.nvim',
+        lazy = true,
+    },
+    {
+        'franbach/miramare',
+        lazy = true,
+    },
 
     -------------------------
     -- File Exploration
