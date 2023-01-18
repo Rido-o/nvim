@@ -1,7 +1,4 @@
 return {
-    ---------------------
-    -- Colorschemes
-    ---------------------
     {
         'AlphaTechnolog/pywal.nvim',
         lazy = true,
