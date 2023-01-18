@@ -62,7 +62,7 @@ local components = {
         text = function(buffer)
             return buffer.is_modified and '●' or ' '
         end,
-        fg = get_hex('Special', 'fg'), -- This should be WarningMsg
+        fg = get_hex('WarningMsg', 'fg'),
     },
 }
 
@@ -77,7 +77,7 @@ local sidebar = {
                     return string.rep(' ', left_padding) .. text
                 end,
                 fg = get_hex('Normal', 'fg'),
-                bg = get_hex('Normal', 'bg'),
+                bg = get_hex('Tabline', 'bg'),
             },
         },
     },

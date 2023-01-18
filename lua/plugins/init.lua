@@ -70,6 +70,7 @@ return {
         config = function()
             require('config.cokeline')
         end,
+        event = 'ColorScheme',
     },
     {
         'utilyre/barbecue.nvim',
