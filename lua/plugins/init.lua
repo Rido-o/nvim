@@ -12,26 +12,6 @@ return {
         end,
     },
 
-    ---------------------
-    -- Colorschemes
-    ---------------------
-    {
-        'AlphaTechnolog/pywal.nvim',
-        lazy = true,
-    },
-    {
-        'folke/tokyonight.nvim',
-        lazy = true,
-    },
-    {
-        'rebelot/kanagawa.nvim',
-        lazy = true,
-    },
-    {
-        'franbach/miramare',
-        lazy = true,
-    },
-
     -------------------------
     -- File Exploration
     -------------------------
