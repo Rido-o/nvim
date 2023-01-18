@@ -200,12 +200,6 @@ return {
         end,
     },
     {
-        'glepnir/lspsaga.nvim',
-        config = function()
-            require('config.lspsaga')
-        end,
-    },
-    {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         config = function()
