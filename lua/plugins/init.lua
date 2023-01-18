@@ -196,7 +196,12 @@ return {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         config = function()
-            require('config.treesitter')
+            require('nvim-treesitter.configs').setup({
+                ensure_installed = { 'lua', 'python', 'nix' },
+                highlight = {
+                    enable = true,
+                },
+            })
         end,
         cond = vim.fn.executable('gcc') == 1,
     },
