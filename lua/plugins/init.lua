@@ -72,16 +72,6 @@ return {
         end,
         event = 'ColorScheme',
     },
-    {
-        'utilyre/barbecue.nvim',
-        dependencies = {
-            'smiteshp/nvim-navic',
-            'kyazdani42/nvim-web-devicons',
-        },
-        config = function()
-            require('config.barbecue')
-        end,
-    },
 
     -----------------
     -- Filetype
