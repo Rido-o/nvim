@@ -53,15 +53,11 @@ map('n', '<leader>k', '<CMD>wincmd k<CR>', { desc = 'Move up' })
 map('n', '<leader>l', '<CMD>wincmd l<CR>', { desc = 'Move right' })
 map('n', '<leader>w', '<CMD>w<CR>', { desc = 'Write' })
 map('n', '<leader>q', '<CMD>q<CR>', { desc = 'Quit' })
-map('n', '<leader>U', '<CMD>UndotreeToggle<CR>', { desc = 'Open undo tree' })
-map('n', '<leader>c', require('Comment.api').toggle.linewise.current, { desc = 'Toggle comment' })
 
 -- Buffer management mappings
 map('n', '<leader>bQ', '<CMD>w|%bd|e#|bd#<CR>', { desc = 'Close all except current' })
 
 -- Lsp mappings
-map('n', '<leader>aa', '<CMD>Lspsaga code_action<CR>', { desc = 'Code action' })
-map('n', '<leader>ar', '<CMD>Lspsaga rename<CR>', { desc = 'Rename' })
 map('n', '<leader>af', '<CMD>lua vim.lsp.buf.format { async = true }<CR>', { desc = 'Format' })
 
 -- Git mappings
@@ -77,18 +73,6 @@ map('n', '<leader>af', '<CMD>lua vim.lsp.buf.format { async = true }<CR>', { des
 -- map('n', '<leader>gd', '<CMD>Git diff<CR>', { desc = 'Git diff' })
 -- map('n', '<leader>gI', '<CMD>!touch .gitignore<CR>', { desc = 'Create git ignore' })
 
--- Vimwiki mappings
-map('n', '<leader>Wi', '<plug>VimwikiDiaryIndex', { desc = 'Open Vimwiki diary' })
-map('n', '<leader>Ws', '<plug>VimwikiUISelect', { desc = 'Select Vimwiki' })
-map('n', '<leader>Wt', '<plug>VimwikiTabIndex', { desc = 'Tab Index' })
-map('n', '<leader>Ww', '<plug>VimwikiIndex', { desc = 'Open Vimwiki' })
--- Vimwiki diary mappings
-map('n', '<leader>W<space>i', '<plug>VimwikiDiaryGenerateLinks', { desc = 'Generate links' })
-map('n', '<leader>W<space>m', '<plug>VimwikiMakeTomorrowDiaryNote', { desc = 'Tomorrows diary' })
-map('n', '<leader>W<space>t', '<plug>VimwikiTabMakeDiaryNote', { desc = 'Tab todays diary' })
-map('n', '<leader>W<space>w', '<plug>VimwikiMakeDiaryNote', { desc = 'Todays diary' })
-map('n', '<leader>W<space>y', '<plug>VimwikiMakeYesterdayDiaryNote', { desc = 'Yesterdays diary' })
-
 local function toggle_color_column()
     if vim.o.colorcolumn == '0' then
         vim.o.colorcolumn = '80'
@@ -99,14 +83,6 @@ end
 
 -- Toggle settings mappings
 map('n', '<leader>tc', toggle_color_column, { desc = 'Toggle color column' })
-
--- Visual mode single key leader mappings
-local esc = vim.api.nvim_replace_termcodes('<ESC>', true, false, true)
-
-map('x', '<leader>c', function()
-    vim.api.nvim_feedkeys(esc, 'nx', false)
-    require('Comment.api').toggle.linewise(vim.fn.visualmode())
-end, { desc = 'Toggle comment' })
 
 -- Mouse keybinds
 map('n', '<ScrollWheelUp>', 'k', { desc = 'Scroll up' })

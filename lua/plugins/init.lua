@@ -85,7 +85,12 @@ return {
     ------------------
     -- Utilities
     ------------------
-    'mbbill/undotree',
+    {
+        'mbbill/undotree',
+        keys = {
+            { '<leader>U', '<cmd>UndotreeToggle<cr>', mode = 'n', desc = 'Open undo tree' },
+        },
+    },
     {
         'vimwiki/vimwiki',
         branch = 'dev',
@@ -215,6 +220,10 @@ return {
     ---------------
     {
         'numToStr/Comment.nvim',
+        keys = {
+            { '<leader>c', '<plug>(comment_toggle_linewise_current)', mode = 'n', desc = 'Toggle comment' },
+            { '<leader>c', '<plug>(comment_toggle_linewise_visual)', mode = 'x', desc = 'Toggle comment' },
+        },
         config = true,
     },
     {

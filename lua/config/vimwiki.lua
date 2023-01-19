@@ -26,3 +26,15 @@ vim.g.vimwiki_key_mappings = {
 }
 -- Set vimwiki prefix
 -- vim.g.vimwiki_map_prefix = '<space>W'
+
+-- Vimwiki mappings
+vim.keymap.set('n', '<leader>Wi', '<plug>VimwikiDiaryIndex', { desc = 'Open Vimwiki diary' })
+vim.keymap.set('n', '<leader>Ws', '<plug>VimwikiUISelect', { desc = 'Select Vimwiki' })
+vim.keymap.set('n', '<leader>Wt', '<plug>VimwikiTabIndex', { desc = 'Tab Index' })
+vim.keymap.set('n', '<leader>Ww', '<plug>VimwikiIndex', { desc = 'Open Vimwiki' })
+-- Vimwiki diary mappings
+vim.keymap.set('n', '<leader>W<space>i', '<plug>VimwikiDiaryGenerateLinks', { desc = 'Generate links' })
+vim.keymap.set('n', '<leader>W<space>m', '<plug>VimwikiMakeTomorrowDiaryNote', { desc = 'Tomorrows diary' })
+vim.keymap.set('n', '<leader>W<space>t', '<plug>VimwikiTabMakeDiaryNote', { desc = 'Tab todays diary' })
+vim.keymap.set('n', '<leader>W<space>w', '<plug>VimwikiMakeDiaryNote', { desc = 'Todays diary' })
+vim.keymap.set('n', '<leader>W<space>y', '<plug>VimwikiMakeYesterdayDiaryNote', { desc = 'Yesterdays diary' })
