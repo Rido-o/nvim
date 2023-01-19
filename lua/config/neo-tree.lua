@@ -83,7 +83,7 @@ neo_tree.setup({
         },
     },
     source_selector = {
-        winbar = true,
+        winbar = false,
     },
 })
 
