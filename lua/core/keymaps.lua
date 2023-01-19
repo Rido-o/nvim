@@ -6,7 +6,7 @@ end
 --------------
 -- Basic
 --------------
--- Enter to clear highlighting
+-- Escape to clear highlighting
 map('n', '<ESC>', '<ESC>:noh<CR>', { desc = 'Clear highlighting' })
 
 -- Do action without yanking into "+ register
