@@ -33,9 +33,7 @@ return {
     -----------
     {
         'NvChad/nvim-colorizer.lua',
-        config = function()
-            require('colorizer').setup()
-        end,
+        config = true,
     },
     {
         'feline-nvim/feline.nvim',
@@ -145,9 +143,7 @@ return {
         'ggandor/leap.nvim',
         dependencies = {
             'ggandor/flit.nvim',
-            config = function()
-                require('flit').setup()
-            end,
+            config = true,
         },
         config = function()
             require('leap').set_default_keymaps()
@@ -219,9 +215,7 @@ return {
     ---------------
     {
         'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end,
+        config = true,
     },
     {
         'windwp/nvim-autopairs',
