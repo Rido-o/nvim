@@ -1,5 +1,6 @@
 return {
     'akinsho/toggleterm.nvim',
+    keys = '<c-\\>',
     config = function()
         require('toggleterm').setup({
             size = 15,
@@ -11,9 +12,7 @@ return {
 
         -- Terminal Mappings
         function _G.set_terminal_keymaps()
-            local map = vim.keymap.set
-            local opts = { noremap = true, buffer = 0 }
-            map('t', '<esc>', [[<C-\><C-n>]], opts)
+            vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], { buffer = 0 })
         end
 
         -- Make mappings only apply to toggleterm
