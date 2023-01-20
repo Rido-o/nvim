@@ -45,6 +45,7 @@ return {
             'ggandor/flit.nvim', -- enhanced f/t motions
             config = true,
         },
+        keys = { 's', 'f', 't' }, -- probably not necessary
         config = function()
             require('leap').set_default_keymaps()
         end,
