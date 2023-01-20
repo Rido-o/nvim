@@ -1,18 +1,10 @@
 return {
-    -- potential plugins {trouble.nvim, nvim-navic, aerial.nvim, neogit, impatient.nvim, alpha-nvim, fidget.nvim, org-mode-clones, clever-f}
+    -- potential plugins { trouble.nvim, nvim-navic/barbecue, aerial.nvim, neogit, alpha-nvim, fidget.nvim, org-mode-clones }
 
-    ------------
-    -- Git
-    ------------
+    ---- Git ----
     'tpope/vim-fugitive',
 
-    -------------------------
-    -- File Exploration
-    -------------------------
-
-    -----------
-    -- UI
-    -----------
+    ---- UI ----
     {
         'NvChad/nvim-colorizer.lua',
         config = true,
@@ -24,13 +16,7 @@ return {
         },
     },
 
-    -----------------
-    -- Filetype
-    -----------------
-
-    ------------------
-    -- Utilities
-    ------------------
+    ---- Utilities ----
     {
         'mbbill/undotree',
         keys = {
@@ -64,9 +50,7 @@ return {
         end,
     },
 
-    ------------
-    -- lSP
-    ------------
+    ---- lSP ----
     {
         'nvim-treesitter/nvim-treesitter',
         cond = vim.fn.executable('gcc') == 1,
@@ -88,9 +72,7 @@ return {
         },
     },
 
-    ---------------
-    -- Editor
-    ---------------
+    ---- Editor ----
     {
         'numToStr/Comment.nvim',
         keys = {
