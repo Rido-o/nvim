@@ -1,5 +1,5 @@
 return {
-    -- potential plugins { trouble.nvim, nvim-navic/barbecue, aerial.nvim, neogit, alpha-nvim, fidget.nvim, org-mode-clones }
+    -- potential plugins { trouble.nvim, nvim-navic/barbecue, aerial.nvim, neogit, alpha-nvim, fidget.nvim, org-mode-clones, lsp-zero }
 
     ---- Git ----
     'tpope/vim-fugitive',
