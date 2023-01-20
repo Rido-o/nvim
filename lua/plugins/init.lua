@@ -42,8 +42,11 @@ return {
     {
         'ggandor/leap.nvim',
         dependencies = {
-            'ggandor/flit.nvim', -- enhanced f/t motions
-            config = true,
+            {
+                'ggandor/flit.nvim', -- enhanced f/t motions
+                config = true,
+            },
+            'tpope/vim-repeat',
         },
         config = function()
             require('leap').set_default_keymaps()
@@ -83,5 +86,4 @@ return {
         },
         config = true,
     },
-    'tpope/vim-repeat',
 }
