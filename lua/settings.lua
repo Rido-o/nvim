@@ -7,7 +7,6 @@ end
 
 -- Options
 options({
-    background = 'dark',
     encoding = 'utf-8', -- The encoding displayed is UTF-8 by default
     fileencoding = 'utf-8',
     fileencodings = 'utf-8', -- Causes problems with fugitive
@@ -31,7 +30,7 @@ options({
     smartcase = true,
     scrolloff = 5, -- How close the cursor should be before the page scrolls
     timeoutlen = 250, -- Default is 1000, normally set to 500, used for which key
-    updatetime = 250, -- For vim signify
+    updatetime = 250, -- For vim signify ? not needed?
     signcolumn = 'yes:1', -- Add permanant column for signs on the left
     termguicolors = true, -- Required for some color schemes and colorizer
     undodir = vim.fn.stdpath('cache') .. '/undo', -- Undo directory
