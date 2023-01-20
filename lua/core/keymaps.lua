@@ -42,8 +42,6 @@ end
 map({ 'n', 'v' }, 'r', _G.Replace_operator, { desc = 'Replace', expr = true })
 map('n', 'rr', '<ESC><CMD>lua _G.Replace_operator("r")<CR>', { desc = 'Replace line' })
 
--- Unsorted whichkey
-
 -- Single key leader mappings
 map('n', '<leader>s', '<CMD>wincmd s<CR>', { desc = 'Horizontal split' })
 map('n', '<leader>v', '<CMD>wincmd v<CR>', { desc = 'Vertical split' })
