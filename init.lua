@@ -25,6 +25,6 @@ require('lazy').setup('plugins', {
 
 -- Select theme -- { pywal, tokyonight, kanagawa, miramare }
 pcall(function()
-    local theme_name = 'tokyonight'
+    local theme_name = 'kanagawa'
     vim.cmd('silent! colorscheme ' .. theme_name)
 end)
