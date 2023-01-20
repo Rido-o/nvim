@@ -1,3 +1,20 @@
+-- Open neo-tree if closed, focus if unfocused and close if focused -- From neo-tree v2.0 reddit post
+local focus_neo_tree = function()
+    local renderer = require('neo-tree.ui.renderer')
+    local manager = require('neo-tree.sources.manager')
+    local cmd = require('neo-tree.command')
+    local state = manager.get_state('filesystem')
+    if renderer.window_exists(state) then
+        if state.winid == vim.api.nvim_get_current_win() then
+            renderer.close(state)
+        else
+            cmd.execute({})
+        end
+    else
+        cmd.execute({})
+    end
+end
+
 return {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
@@ -5,6 +22,10 @@ return {
         'nvim-lua/plenary.nvim',
         'kyazdani42/nvim-web-devicons',
         'MunifTanjim/nui.nvim',
+    },
+    cmd = 'Neotree',
+    keys = {
+        { '<leader>n', focus_neo_tree, desc = 'Focus on file explorer' },
     },
     config = function()
         -- remove legacy commands
@@ -90,30 +111,5 @@ return {
                 winbar = false,
             },
         })
-
-        -- Open neo-tree if closed, focus if unfocused and close if focused -- From neo-tree v2.0 reddit post
-        local renderer = require('neo-tree.ui.renderer')
-        local manager = require('neo-tree.sources.manager')
-        local cmd = require('neo-tree.command')
-
-        local focus_neo_tree = function()
-            local state = manager.get_state('filesystem')
-            if renderer.window_exists(state) then
-                if state.winid == vim.api.nvim_get_current_win() then
-                    renderer.close(state)
-                else
-                    cmd.execute({})
-                end
-            else
-                cmd.execute({})
-            end
-        end
-
-        vim.keymap.set(
-            'n',
-            '<leader>n',
-            focus_neo_tree,
-            { noremap = true, silent = true, desc = 'Focus on file explorer' }
-        )
     end,
 }
