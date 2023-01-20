@@ -19,11 +19,9 @@ return {
     },
     {
         'lukas-reineke/indent-blankline.nvim',
-        config = function()
-            require('indent_blankline').setup({
-                char = '┊',
-            })
-        end,
+        config = {
+            char = '┊',
+        },
     },
 
     -----------------
@@ -73,23 +71,21 @@ return {
         'nvim-treesitter/nvim-treesitter',
         cond = vim.fn.executable('gcc') == 1,
         build = ':TSUpdate',
-        config = function()
-            require('nvim-treesitter.configs').setup({
-                ensure_installed = { 'lua', 'python', 'nix' },
-                highlight = {
-                    enable = true,
+        config = {
+            ensure_installed = { 'lua', 'python', 'nix' },
+            highlight = {
+                enable = true,
+            },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = '<CR>',
+                    node_incremental = '<CR>',
+                    scope_incremental = '<S-CR>',
+                    node_decremental = '<BS>',
                 },
-                incremental_selection = {
-                    enable = true,
-                    keymaps = {
-                        init_selection = '<CR>',
-                        node_incremental = '<CR>',
-                        scope_incremental = '<S-CR>',
-                        node_decremental = '<BS>',
-                    },
-                },
-            })
-        end,
+            },
+        },
     },
 
     ---------------
