@@ -17,7 +17,7 @@ return {
     {
         'mbbill/undotree',
         keys = {
-            { '<leader>U', '<cmd>UndotreeToggle<cr>', mode = 'n', desc = 'Open undo tree' },
+            { '<leader>U', '<CMD>UndotreeToggle<CR>', mode = 'n', desc = 'Open undo tree' },
         },
     },
     {
