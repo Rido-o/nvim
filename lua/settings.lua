@@ -29,7 +29,6 @@ options({
     undofile = true, -- Allow undo files
     ignorecase = true,
     smartcase = true,
-    colorcolumn = '0', -- Set how far the color column should be
     scrolloff = 5, -- How close the cursor should be before the page scrolls
     timeoutlen = 250, -- Default is 1000, normally set to 500, used for which key
     updatetime = 250, -- For vim signify
