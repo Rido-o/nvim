@@ -1,5 +1,5 @@
 return {
-    -- potential plugins { trouble.nvim, nvim-navic/barbecue, aerial.nvim, neogit, alpha-nvim, fidget.nvim, org-mode-clones, lsp-zero }
+    -- potential plugins { trouble.nvim, nvim-navic/barbecue, aerial.nvim, neogit, alpha-nvim, fidget.nvim, org-mode-clones, lsp-zero, heirline.nvim }
 
     ---- UI ----
     {
