@@ -11,6 +11,7 @@ return {
             cond = vim.fn.executable('gcc') == 1,
         },
     },
+    cmd = 'Telescope',
     keys = {
         { '<leader>ff', '<CMD>Telescope find_files<CR>', desc = 'Find file' },
         { '<leader>fb', '<CMD>Telescope buffers<CR>', desc = 'Find buffer' },
