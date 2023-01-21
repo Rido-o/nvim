@@ -11,6 +11,19 @@ return {
             cond = vim.fn.executable('make') == 1,
         },
     },
+    keys = {
+        { '<leader>ff', '<CMD>Telescope find_files<CR>', desc = 'Find file' },
+        { '<leader>fb', '<CMD>Telescope buffers<CR>', desc = 'Find buffer' },
+        { '<leader>fl', '<CMD>Telescope live_grep<CR>', desc = 'Find line' },
+        { '<leader>fg', '<CMD>Telescope git_files<CR>', desc = 'Find git file' },
+        { '<leader>fs', '<CMD>Telescope grep_string<CR>', desc = 'Find string' },
+        { '<leader>fo', '<CMD>Telescope oldfiles<CR>', desc = 'Find recently opened file' },
+        { '<leader>fh', '<CMD>Telescope command_history<CR>', desc = 'Search command history' },
+        { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = 'List colorschemes' },
+        { '<leader>fP', '<CMD>Telescope builtin<CR>', desc = 'List all pickers' },
+        { '<leader>fd', '<CMD>Telescope diagnostics<CR>', desc = 'Show diagnostics' },
+        { '<leader>fm', '<CMD>Telescope man_pages<CR>', desc = 'Find man page' },
+    },
     opts = {
         defaults = {
             mappings = {
@@ -33,19 +46,5 @@ return {
         require('telescope').setup(opts)
 
         pcall(require('telescope').load_extension, 'fzf')
-
-        local map = vim.keymap.set
-        local picker = require('telescope.builtin')
-        map('n', '<leader>ff', picker.find_files, { desc = 'Find file' })
-        map('n', '<leader>fb', picker.buffers, { desc = 'Find buffer' })
-        map('n', '<leader>fl', picker.live_grep, { desc = 'Find line' })
-        map('n', '<leader>fg', picker.git_files, { desc = 'Find git file' })
-        map('n', '<leader>fs', picker.grep_string, { desc = 'Find string' })
-        map('n', '<leader>fo', picker.oldfiles, { desc = 'Find recently opened file' })
-        map('n', '<leader>fh', picker.command_history, { desc = 'Search command history' })
-        map('n', '<leader>fc', picker.colorscheme, { desc = 'List colorschemes' })
-        map('n', '<leader>fP', picker.builtin, { desc = 'List all pickers' })
-        map('n', '<leader>fd', picker.diagnostics, { desc = 'Show diagnostics' })
-        map('n', '<leader>fm', picker.man_pages, { desc = 'Find man page' })
     end,
 }
