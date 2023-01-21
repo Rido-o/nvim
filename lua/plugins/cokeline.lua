@@ -8,18 +8,7 @@ return {
     config = function()
         local get_hex = require('cokeline/utils').get_hex
 
-        local superscript_numbers = {
-            ['0'] = '⁰',
-            ['1'] = '¹',
-            ['2'] = '²',
-            ['3'] = '³',
-            ['4'] = '⁴',
-            ['5'] = '⁵',
-            ['6'] = '⁶',
-            ['7'] = '⁷',
-            ['8'] = '⁸',
-            ['9'] = '⁹',
-        }
+        local scripts = { '⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹' }
 
         local components = {
             space = {
@@ -45,7 +34,7 @@ return {
             index = {
                 text = function(buffer)
                     return tostring(buffer.index):gsub('.', function(c)
-                        return superscript_numbers[c] or ''
+                        return scripts[tonumber(c + 1)] or ''
                     end)
                 end,
             },
