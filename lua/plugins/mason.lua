@@ -1,15 +1,11 @@
--- Check mason requirements
 return {
-    'williamboman/mason.nvim',
+    'williamboman/mason.nvim', -- Check requirements
     dependencies = {
         { 'williamboman/mason-lspconfig.nvim' },
         { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
     },
+    cond = vim.g.distro ~= 'nixos',
     config = function()
-        if vim.g.distro == 'nixos' then
-            return
-        end
-
         require('mason').setup()
 
         require('mason-lspconfig').setup({
