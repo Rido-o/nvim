@@ -22,19 +22,12 @@ return {
     },
     {
         'ahmedkhalf/project.nvim',
-        dependencies = 'nvim-telescope/telescope.nvim',
         opts = {
             detection_methods = { 'pattern', 'lsp' },
             patterns = { '.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json', '>.config' },
         },
         config = function(_, opts)
             require('project_nvim').setup(opts)
-
-            local status_telescope_ok, telescope = pcall(require, 'telescope')
-            if status_telescope_ok then
-                telescope.load_extension('projects')
-                vim.keymap.set('n', '<leader>fp', '<CMD>Telescope projects<CR>', { desc = 'Find recent project' })
-            end
         end,
     },
     {

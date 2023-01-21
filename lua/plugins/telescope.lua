@@ -6,9 +6,9 @@ return {
         { 'nvim-lua/plenary.nvim' },
         {
             'nvim-telescope/telescope-fzf-native.nvim',
-            -- Won't work with windows
-            build = 'make',
-            cond = vim.fn.executable('make') == 1,
+            -- *Won't work with windows
+            build = 'gcc', -- was previously make
+            cond = vim.fn.executable('gcc') == 1,
         },
     },
     keys = {
@@ -23,13 +23,18 @@ return {
         { '<leader>fP', '<CMD>Telescope builtin<CR>', desc = 'List all pickers' },
         { '<leader>fd', '<CMD>Telescope diagnostics<CR>', desc = 'Show diagnostics' },
         { '<leader>fm', '<CMD>Telescope man_pages<CR>', desc = 'Find man page' },
+        { '<leader>fp', '<CMD>Telescope projects<CR>', desc = 'Find recent project' },
     },
     opts = {
         defaults = {
             mappings = {
                 i = {
-                    ['<Tab>'] = require('telescope.actions').move_selection_previous,
-                    ['<S-Tab>'] = require('telescope.actions').move_selection_next,
+                    ['<Tab>'] = function(...)
+                        return require('telescope.actions').move_selection_previous(...)
+                    end,
+                    ['<S-Tab>'] = function(...)
+                        return require('telescope.actions').move_selection_next(...)
+                    end,
                 },
             },
         },
@@ -45,5 +50,6 @@ return {
     config = function(_, opts)
         require('telescope').setup(opts)
         pcall(require('telescope').load_extension, 'fzf')
+        pcall(require('telescope').load_extension, 'projects')
     end,
 }
