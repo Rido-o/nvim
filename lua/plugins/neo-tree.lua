@@ -56,23 +56,6 @@ return {
                     highlight = 'WarningMsg',
                 },
             },
-            renderers = {
-                -- Default settings except without error icon
-                directory = {
-                    { 'indent' },
-                    { 'icon' },
-                    { 'current_filter' },
-                    {
-                        'container',
-                        width = '100%',
-                        right_padding = 0,
-                        content = {
-                            { 'name', zindex = 10 },
-                            { 'clipboard', zindex = 10 },
-                        },
-                    },
-                },
-            },
             window = {
                 width = 30,
                 mappings = {
@@ -106,9 +89,6 @@ return {
                         ['.'] = 'toggle_hidden',
                     },
                 },
-            },
-            source_selector = {
-                winbar = false,
             },
         })
     end,
