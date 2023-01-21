@@ -10,6 +10,7 @@ return {
         { 'saadparwaiz1/cmp_luasnip' },
         { 'rafamadriz/friendly-snippets' },
     },
+    event = 'InsertEnter',
     config = function()
         -- Functions used for tab mapping
         local has_words_before = function()

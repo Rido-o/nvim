@@ -36,6 +36,7 @@ return {
             'ggandor/flit.nvim', -- enhanced f/t motions
             config = true,
         },
+        event = 'InsertEnter',
         config = function()
             require('leap').set_default_keymaps()
         end,

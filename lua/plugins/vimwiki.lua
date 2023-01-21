@@ -1,6 +1,13 @@
 return {
     'vimwiki/vimwiki',
     branch = 'dev',
+    ft = 'vimwiki',
+    keys = {
+        { '<leader>Wi', '<plug>VimwikiDiaryIndex', desc = 'Open Vimwiki diary' },
+        { '<leader>Ws', '<plug>VimwikiUISelect', desc = 'Select Vimwiki' },
+        { '<leader>Wt', '<plug>VimwikiTabIndex', desc = 'Tab Index' },
+        { '<leader>Ww', '<plug>VimwikiIndex', desc = 'Open Vimwiki' },
+    },
     config = function()
         -- Set vimwiki location
         if vim.g.os == 'Windows' then
@@ -28,11 +35,6 @@ return {
         -- Set vimwiki prefix
         -- vim.g.vimwiki_map_prefix = '<space>W'
 
-        -- Vimwiki mappings
-        vim.keymap.set('n', '<leader>Wi', '<plug>VimwikiDiaryIndex', { desc = 'Open Vimwiki diary' })
-        vim.keymap.set('n', '<leader>Ws', '<plug>VimwikiUISelect', { desc = 'Select Vimwiki' })
-        vim.keymap.set('n', '<leader>Wt', '<plug>VimwikiTabIndex', { desc = 'Tab Index' })
-        vim.keymap.set('n', '<leader>Ww', '<plug>VimwikiIndex', { desc = 'Open Vimwiki' })
         -- Vimwiki diary mappings
         vim.keymap.set('n', '<leader>W<space>i', '<plug>VimwikiDiaryGenerateLinks', { desc = 'Generate links' })
         vim.keymap.set('n', '<leader>W<space>m', '<plug>VimwikiMakeTomorrowDiaryNote', { desc = 'Tomorrows diary' })
