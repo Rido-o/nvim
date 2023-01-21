@@ -28,3 +28,5 @@ pcall(function()
     local theme_name = 'kanagawa'
     vim.cmd('silent! colorscheme ' .. theme_name)
 end)
+
+vim.api.nvim_set_hl(0, 'TabLineFill', { link = 'Tabline' })

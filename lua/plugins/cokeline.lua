@@ -130,12 +130,9 @@ return {
 
         vim.keymap.set('n', '<leader>y', '<Plug>(cokeline-focus-prev)', { desc = 'Previous Buffer' })
         vim.keymap.set('n', '<leader>u', '<Plug>(cokeline-focus-next)', { desc = 'Next buffer' })
-        vim.keymap.set('n', '<leader>bp', '<Plug>(cokeline-pick-focus)', { desc = 'Pick buffer' })
         local bufdelete_status = pcall(require, 'bufdelete')
         if bufdelete_status then
             vim.keymap.set('n', '<leader>bq', '<CMD>Bdelete<CR>', { desc = 'Buffer delete' })
         end
-
-        vim.api.nvim_set_hl(0, 'TabLineFill', { link = 'Tabline' })
     end,
 }
