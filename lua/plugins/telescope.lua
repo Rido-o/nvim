@@ -11,25 +11,26 @@ return {
             cond = vim.fn.executable('make') == 1,
         },
     },
-    config = function()
-        require('telescope').setup({
-            defaults = {
-                mappings = {
-                    i = {
-                        ['<Tab>'] = require('telescope.actions').move_selection_previous,
-                        ['<S-Tab>'] = require('telescope.actions').move_selection_next,
-                    },
+    opts = {
+        defaults = {
+            mappings = {
+                i = {
+                    ['<Tab>'] = require('telescope.actions').move_selection_previous,
+                    ['<S-Tab>'] = require('telescope.actions').move_selection_next,
                 },
             },
-            extensions = {
-                fzf = {
-                    fuzzy = true,
-                    override_generic_sorter = true,
-                    override_file_sorter = true,
-                    case_mode = 'smart_case',
-                },
+        },
+        extensions = {
+            fzf = {
+                fuzzy = true,
+                override_generic_sorter = true,
+                override_file_sorter = true,
+                case_mode = 'smart_case',
             },
-        })
+        },
+    },
+    config = function(_, opts)
+        require('telescope').setup(opts)
 
         pcall(require('telescope').load_extension, 'fzf')
 

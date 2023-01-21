@@ -1,6 +1,6 @@
 return {
     'lewis6991/gitsigns.nvim',
-    config = {
+    opts = {
         -- Signcolumn icons
         signs = {
             add = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' }, -- │

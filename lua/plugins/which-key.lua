@@ -1,12 +1,13 @@
 return {
     'folke/which-key.nvim',
-    config = function()
-        require('which-key').setup({
-            operators = { gc = 'Comments', r = 'Replace' },
-            window = {
-                padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-            },
-        })
+    opts = {
+        operators = { gc = 'Comments', r = 'Replace' },
+        window = {
+            padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+        },
+    },
+    config = function(_, opts)
+        require('which-key').setup(opts)
 
         -- Disable whick-key for visual mode
         local presets = require('which-key.plugins.presets')

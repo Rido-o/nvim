@@ -1,14 +1,15 @@
 return {
     'akinsho/toggleterm.nvim',
     keys = '<c-\\>',
-    config = function()
-        require('toggleterm').setup({
-            size = 15,
-            open_mapping = [[<c-\>]], -- Same as <c-4>
-            shading_factor = '0', -- default is -30, makes background darker
-            start_in_insert = false,
-            close_on_exit = false, -- close the terminal window when the process exits
-        })
+    opts = {
+        size = 15,
+        open_mapping = [[<c-\>]], -- Same as <c-4>
+        shading_factor = '0', -- default is -30, makes background darker
+        start_in_insert = false,
+        close_on_exit = false, -- close the terminal window when the process exits
+    },
+    config = function(_, opts)
+        require('toggleterm').setup(opts)
 
         -- Terminal Mappings
         function _G.set_terminal_keymaps()

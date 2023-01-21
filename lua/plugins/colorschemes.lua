@@ -6,7 +6,7 @@ return {
     {
         'folke/tokyonight.nvim',
         lazy = true,
-        config = {
+        opts = {
             style = 'night',
             styles = {
                 comments = { italic = false },
@@ -16,7 +16,7 @@ return {
     {
         'rebelot/kanagawa.nvim',
         lazy = true,
-        config = {
+        opts = {
             globalStatus = true,
         },
     },

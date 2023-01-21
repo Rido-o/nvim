@@ -8,7 +8,7 @@ return {
     },
     {
         'lukas-reineke/indent-blankline.nvim',
-        config = {
+        opts = {
             char = '┊',
         },
     },
@@ -23,11 +23,12 @@ return {
     {
         'ahmedkhalf/project.nvim',
         dependencies = 'nvim-telescope/telescope.nvim',
-        config = function()
-            require('project_nvim').setup({
-                detection_methods = { 'pattern', 'lsp' },
-                patterns = { '.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json', '>.config' },
-            })
+        opts = {
+            detection_methods = { 'pattern', 'lsp' },
+            patterns = { '.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json', '>.config' },
+        },
+        config = function(_, opts)
+            require('project_nvim').setup(opts)
 
             local status_telescope_ok, telescope = pcall(require, 'telescope')
             if status_telescope_ok then
@@ -52,22 +53,21 @@ return {
         'nvim-treesitter/nvim-treesitter',
         cond = vim.fn.executable('gcc') == 1,
         build = ':TSUpdate',
-        config = function()
-            require('nvim-treesitter.configs').setup({
-                ensure_installed = { 'lua', 'python', 'nix' },
-                highlight = {
-                    enable = true,
+        opts = {
+            ensure_installed = { 'lua', 'python', 'nix' },
+            highlight = { enable = true },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = '<CR>',
+                    node_incremental = '<CR>',
+                    scope_incremental = '<S-CR>',
+                    node_decremental = '<BS>',
                 },
-                incremental_selection = {
-                    enable = true,
-                    keymaps = {
-                        init_selection = '<CR>',
-                        node_incremental = '<CR>',
-                        scope_incremental = '<S-CR>',
-                        node_decremental = '<BS>',
-                    },
-                },
-            })
+            },
+        },
+        config = function(_, opts)
+            require('nvim-treesitter.configs').setup(opts)
         end,
     },
 
