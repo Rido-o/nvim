@@ -2,7 +2,12 @@ return {
     'noib3/nvim-cokeline',
     dependencies = {
         'kyazdani42/nvim-web-devicons',
-        'famiu/bufdelete.nvim',
+        {
+            'famiu/bufdelete.nvim',
+            keys = {
+                { '<leader>bq', '<CMD>Bdelete<CR>', desc = 'Buffer delete' },
+            },
+        },
     },
     event = 'ColorScheme',
     config = function()
@@ -112,9 +117,5 @@ return {
 
         vim.keymap.set('n', '<leader>y', '<Plug>(cokeline-focus-prev)', { desc = 'Previous Buffer' })
         vim.keymap.set('n', '<leader>u', '<Plug>(cokeline-focus-next)', { desc = 'Next buffer' })
-        local bufdelete_status = pcall(require, 'bufdelete')
-        if bufdelete_status then
-            vim.keymap.set('n', '<leader>bq', '<CMD>Bdelete<CR>', { desc = 'Buffer delete' })
-        end
     end,
 }
