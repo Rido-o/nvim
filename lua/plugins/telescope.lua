@@ -23,7 +23,7 @@ return {
         { '<leader>fP', '<CMD>Telescope builtin<CR>', desc = 'List all pickers' },
         { '<leader>fd', '<CMD>Telescope diagnostics<CR>', desc = 'Show diagnostics' },
         { '<leader>fm', '<CMD>Telescope man_pages<CR>', desc = 'Find man page' },
-        { '<leader>fp', '<CMD>Telescope projects<CR>', desc = 'Find recent project' },
+        { '<leader>fp', '<CMD>Telescope projects<CR>', desc = 'Find recent project' }, -- TODO need to make it conditional
     },
     opts = {
         defaults = {
