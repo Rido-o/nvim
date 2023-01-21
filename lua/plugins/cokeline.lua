@@ -7,16 +7,11 @@ return {
     event = 'ColorScheme',
     config = function()
         local get_hex = require('cokeline/utils').get_hex
-
         local scripts = { '⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹' }
 
         local components = {
-            space = {
-                text = ' ',
-            },
-            two_space = {
-                text = '  ',
-            },
+            space = { text = ' ' },
+            two_space = { text = '  ' },
             separator = {
                 text = '┃', -- ▎┃
                 fg = function(buffer)
@@ -93,9 +88,7 @@ return {
                     return buffer.filetype ~= 'vimwiki'
                 end,
             },
-            rendering = {
-                max_buffer_width = 30,
-            },
+            rendering = { max_buffer_width = 30 },
             default_hl = {
                 fg = function(buffer)
                     return buffer.is_focused and get_hex('Normal', 'fg') or get_hex('Comment', 'fg')
