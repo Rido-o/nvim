@@ -2,7 +2,7 @@ return {
     'feline-nvim/feline.nvim',
     dependencies = {
         'kyazdani42/nvim-web-devicons',
-        'lewis6991/gitsigns.nvim',
+        'lewis6991/gitsigns.nvim', -- git branch and diffs
     },
     config = function()
         local function get_col(group, id)
