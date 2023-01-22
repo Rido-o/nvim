@@ -30,11 +30,6 @@ return {
                         },
                     },
                 },
-                ['core.norg.completion'] = {
-                    config = {
-                        engine = 'nvim-cmp',
-                    },
-                },
             },
         },
         config = function(_, opts)
