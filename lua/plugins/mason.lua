@@ -1,8 +1,8 @@
 return {
     'williamboman/mason.nvim', -- Check requirements
     dependencies = {
-        { 'williamboman/mason-lspconfig.nvim' },
-        { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
+        'williamboman/mason-lspconfig.nvim',
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
     },
     cond = vim.g.distro ~= 'nixos',
     config = function()

@@ -2,8 +2,10 @@ return {
     -- Requires ripgrep for livegrep picker
     'nvim-telescope/telescope.nvim',
     dependencies = {
-        { 'nvim-lua/popup.nvim' },
-        { 'nvim-lua/plenary.nvim' },
+        'nvim-neorg/neorg',
+        'ahmedkhalf/project.nvim',
+        'nvim-lua/popup.nvim',
+        'nvim-lua/plenary.nvim',
         {
             'nvim-telescope/telescope-fzf-native.nvim',
             -- *Won't work with windows
@@ -25,6 +27,7 @@ return {
         { '<leader>fd', '<CMD>Telescope diagnostics<CR>', desc = 'Show diagnostics' },
         { '<leader>fm', '<CMD>Telescope man_pages<CR>', desc = 'Find man page' },
         { '<leader>fp', '<CMD>Telescope projects<CR>', desc = 'Find recent project' }, -- TODO need to make it conditional
+        { '<leader>fn', '<CMD>Telescope neorg switch_workspace<CR>', desc = 'Switch neorg workspace' }, -- TODO need to make it conditional
     },
     opts = {
         defaults = {

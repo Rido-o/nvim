@@ -15,9 +15,15 @@ return {
     {
         'nvim-neorg/neorg',
         build = ':Neorg sync-parsers',
-        dependencies = { { 'nvim-lua/plenary.nvim' } },
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-neorg/neorg-telescope',
+        },
         ft = 'norg',
-        cmd = 'Neorg',
+        cmd = {
+            'Neorg',
+            'Telescope',
+        },
         opts = {
             load = {
                 ['core.defaults'] = {},
@@ -35,6 +41,7 @@ return {
                         engine = 'nvim-cmp',
                     },
                 },
+                ['core.integrations.telescope'] = {},
             },
         },
         config = function(_, opts)

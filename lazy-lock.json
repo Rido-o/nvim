@@ -21,6 +21,7 @@
   "miramare": { "branch": "master", "commit": "04330816640c3162275d69e7094126727948cd0d" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "8238865e1d9c61f1a260c290653f2c419503e0a9" },
   "neorg": { "branch": "main", "commit": "4a9a5fe13cd454692fc4db0b27783cd005e6be56" },
+  "neorg-telescope": { "branch": "main", "commit": "8d15129818c5dc224be97c9c6350d3386addeac8" },
   "nui.nvim": { "branch": "main", "commit": "b99e6cb13dc51768abc1c4c8585045a0c0459ef1" },
   "null-ls.nvim": { "branch": "main", "commit": "33cfeb7a761f08e8535dca722d4b237cabadd371" },
   "nvim-autopairs": { "branch": "master", "commit": "31042a5823b55c4bfb30efcbba2fc1b5b53f90dc" },
