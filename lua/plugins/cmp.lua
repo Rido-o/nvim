@@ -94,7 +94,7 @@ return {
                 { name = 'luasnip' }, -- For luasnip users.
                 { name = 'buffer' },
                 { name = 'path' },
-                { name = 'neorg' },
+                { name = 'neorg' }, -- TODO make it require neorg to be installed
             }),
             formatting = {
                 format = function(entry, vim_item)

@@ -12,6 +12,7 @@ return {
 
         -- nvim-cmp integration, add () for lsp functions, test with require in lua
         -- If you want insert `(` after select function or method item
+        -- TODO move to cmp config maybe
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         local cmp_status, cmp = pcall(require, 'cmp')
         if cmp_status then
