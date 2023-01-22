@@ -12,6 +12,26 @@ return {
             char = '┊',
         },
     },
+    {
+        'nvim-neorg/neorg',
+        build = ':Neorg sync-parsers',
+        dependencies = { { 'nvim-lua/plenary.nvim' } },
+        ft = 'norg',
+        cmd = 'Neorg',
+        opts = {
+            load = {
+                ['core.defaults'] = {},
+                ['core.norg.concealer'] = {},
+                ['core.norg.dirman'] = {
+                    config = {
+                        workspaces = {
+                            notes = '~/notes',
+                        },
+                    },
+                },
+            },
+        },
+    },
 
     ---- Utilities ----
     {
