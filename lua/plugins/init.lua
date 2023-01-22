@@ -13,7 +13,7 @@ return {
         },
     },
     {
-        'nvim-neorg/neorg',
+        'nvim-neorg/neorg', -- TODO improve lazy loading as it gets loaded if telescope is loaded
         build = ':Neorg sync-parsers',
         dependencies = {
             'nvim-lua/plenary.nvim',
