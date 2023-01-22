@@ -94,6 +94,7 @@ return {
                 { name = 'luasnip' }, -- For luasnip users.
                 { name = 'buffer' },
                 { name = 'path' },
+                { name = 'neorg' },
             }),
             formatting = {
                 format = function(entry, vim_item)
