@@ -26,11 +26,28 @@ return {
                     config = {
                         workspaces = {
                             notes = '~/notes',
+                            wiki = '~/.cfg/wiki',
                         },
+                    },
+                },
+                ['core.norg.completion'] = {
+                    config = {
+                        engine = 'nvim-cmp',
                     },
                 },
             },
         },
+        config = function(_, opts)
+            require('neorg').setup(opts)
+            vim.api.nvim_create_autocmd('FileType', {
+                group = vim.api.nvim_create_augroup('NeorgSettings', { clear = true }),
+                pattern = 'norg',
+                callback = function()
+                    vim.o.conceallevel = 2
+                    vim.o.foldlevel = 7
+                end,
+            })
+        end,
     },
 
     ---- Utilities ----
