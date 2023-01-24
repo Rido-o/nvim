@@ -18,6 +18,7 @@ return {
             'nvim-neorg/neorg',
             'nvim-telescope/telescope.nvim',
         },
+        -- cmd = 'Telescope neorg', -- TODO make this work
         keys = {
             { '<leader>fn', '<CMD>Telescope neorg switch_workspace<CR>', desc = 'Switch neorg workspace' },
         },
