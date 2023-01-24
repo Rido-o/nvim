@@ -134,4 +134,8 @@ return {
         },
         config = true,
     },
+    {
+        'kylechui/nvim-surround',
+        config = true,
+    },
 }
