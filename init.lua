@@ -18,6 +18,9 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugin Management
 require('lazy').setup('plugins', {
+    defaults = {
+        version = false,
+    },
     change_detection = {
         notify = false,
     },
