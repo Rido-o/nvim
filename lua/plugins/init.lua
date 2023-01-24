@@ -86,8 +86,17 @@ return {
         dependencies = { -- can repeat.vim for . functionality
             'ggandor/flit.nvim', -- enhanced f/t motions
             config = true,
+            keys = {
+                { 'f', mode = { 'n', 'x' } },
+                { 'F', mode = { 'n', 'x' } },
+                { 't', mode = { 'n', 'x' } },
+                { 'T', mode = { 'n', 'x' } },
+            },
         },
-        event = 'InsertEnter',
+        keys = {
+            { 's', mode = { 'n', 'x' } },
+            { 'S', mode = { 'n', 'x' } },
+        },
         config = function()
             require('leap').set_default_keymaps()
         end,
