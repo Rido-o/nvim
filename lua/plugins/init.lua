@@ -13,17 +13,23 @@ return {
         },
     },
     {
-        'nvim-neorg/neorg', -- TODO improve lazy loading as it gets loaded if telescope is loaded
+        'nvim-neorg/neorg-telescope',
+        dependencies = {
+            'nvim-neorg/neorg',
+            'nvim-telescope/telescope.nvim',
+        },
+        keys = {
+            { '<leader>fn', '<CMD>Telescope neorg switch_workspace<CR>', desc = 'Switch neorg workspace' },
+        },
+    },
+    {
+        'nvim-neorg/neorg',
         build = ':Neorg sync-parsers',
         dependencies = {
             'nvim-lua/plenary.nvim',
-            'nvim-neorg/neorg-telescope',
         },
         ft = 'norg',
-        cmd = {
-            'Neorg',
-            'Telescope',
-        },
+        cmd = 'Neorg',
         opts = {
             load = {
                 ['core.defaults'] = {},
