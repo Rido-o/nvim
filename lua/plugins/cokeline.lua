@@ -58,13 +58,13 @@ return {
             },
         }
 
-        local sidebar = {
+        local sidebar = { -- TODO add padding to sidebar to make it respect separator
             file_explorer = {
                 filetype = 'neo-tree',
                 components = {
                     {
                         text = function()
-                            local text, width = 'File Explorer', 30
+                            local text, width = '', 30
                             local left_padding = math.floor((width - string.len(text)) / 2)
                             return string.rep(' ', left_padding) .. text
                         end,
