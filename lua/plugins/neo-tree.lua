@@ -31,6 +31,12 @@ return {
         -- remove legacy commands
         vim.g.neo_tree_remove_legacy_commands = true
 
+        -- modify highlight groups
+        local neotree_hl_bg = vim.api.nvim_get_hl_by_name('TabLine', true).background
+        vim.api.nvim_set_hl(0, 'NeoTreeWinSeparator', { fg = neotree_hl_bg, bg = neotree_hl_bg }) -- TODO fix t intersection separator
+        vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg = neotree_hl_bg })
+        vim.api.nvim_set_hl(0, 'NeoTreeNormalNC', { bg = neotree_hl_bg })
+
         -- cd if directory else open file
         local open_cwd = function(state)
             local node = state.tree:get_node()
