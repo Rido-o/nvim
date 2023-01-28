@@ -1,6 +1,7 @@
 local M = {}
 
 M.icons = {
+    telescope_prefix = '   ',
     os = {
         linux = '',
         mac = '',
@@ -13,11 +14,11 @@ M.icons = {
         cursor_position = ' ',
         modified = '●',
     },
-    tabline = { -- Unused
+    tabline = {
         separator = '┃',
         modified = '●',
     },
-    listchars = { -- Unused
+    listchars = {
         trail = '-',
         tab = '  ',
         -- extends = '»',
@@ -25,19 +26,20 @@ M.icons = {
         -- nbsp = '⣿',
         -- eol = '¬',
     },
-    diagnostics = { -- Unused
+    diagnostics = {
         Error = ' ', -- 
         Warn = ' ', -- ⚠
         Hint = ' ', -- 
         Info = ' ', -- 
     },
-    git = { -- Unused
+    git = {
         added = '+', --  
         modified = '~', --  
         removed = '-', --  
         branch = ' ', -- 
+        signs = '▎', -- │
     },
-    kinds = { -- unused
+    kinds = {
         Text = '',
         Method = '',
         Function = '',
