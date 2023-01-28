@@ -8,9 +8,9 @@ return {
     },
     {
         'lukas-reineke/indent-blankline.nvim',
-        opts = {
-            char = '┊',
-        },
+        -- opts = {
+        --     char = '┊',
+        -- },
     },
     {
         'nvim-neorg/neorg-telescope',
