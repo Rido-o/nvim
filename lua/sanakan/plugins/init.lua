@@ -94,8 +94,13 @@ return {
             },
         },
         keys = {
-            { 's', mode = { 'n', 'x' } },
-            { 'S', mode = { 'n', 'x' } },
+            {
+                's',
+                function()
+                    require('leap').leap({ target_windows = { vim.fn.win_getid() } })
+                end,
+                mode = { 'n', 'x' },
+            },
         },
         config = function()
             require('leap').set_default_keymaps()
