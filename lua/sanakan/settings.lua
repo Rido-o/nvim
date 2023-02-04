@@ -60,12 +60,10 @@ vim.api.nvim_create_autocmd('BufEnter', {
 
 -- Set shell to Windows PowerShell if on windows -- :help shell-powershell
 if vim.g.os == 'Windows' then
-    opt({
-        shell = 'pwsh.exe',
-        shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command',
-        shellxquote = '',
-        shellquote = '',
-        shellredir = '2>&1 | Out-File -Encoding UTF8 %s',
-        shellpipe = '2>&1 | Out-File -Encoding UTF8 %s',
-    })
+    opt.shell = 'pwsh.exe'
+    opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
+    opt.shellxquote = ''
+    opt.shellquote = ''
+    opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s'
+    opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s'
 end
