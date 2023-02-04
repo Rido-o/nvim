@@ -102,6 +102,9 @@ return {
             patterns = { '.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json', '>.config' },
         },
         config = function(_, opts)
+            if vim.g.os == 'Windows' then
+                table.remove(opts.patterns, 8)
+            end
             require('project_nvim').setup(opts)
         end,
     },

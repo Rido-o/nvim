@@ -48,6 +48,10 @@ elseif raw_os == 'Linux' then
     vim.g.distro = vim.fn.system("sed -n 's/^DISTRIB_ID=//p' /etc/*-release | tr -d '\n'")
 end
 
+if vim.g.os == 'Windows' then
+    opt.linespace = 2
+end
+
 -- Disable auto-commenting
 vim.api.nvim_create_autocmd('BufEnter', {
     group = vim.api.nvim_create_augroup('DiableAutoComment', { clear = true }),
