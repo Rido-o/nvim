@@ -73,6 +73,13 @@ return {
                     },
                 },
                 ['core.integrations.telescope'] = {},
+                ['core.keybinds'] = {
+                    config = {
+                        hook = function(keybinds)
+                            keybinds.map('norg', 'n', '<BS>', '<C-^>') -- :e#
+                        end,
+                    },
+                },
             },
         },
         config = function(_, opts)
