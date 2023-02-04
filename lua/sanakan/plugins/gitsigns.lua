@@ -4,8 +4,7 @@ return {
     'lewis6991/gitsigns.nvim',
     event = 'BufReadPre',
     opts = {
-        -- Signcolumn icons
-        signs = { -- │
+        signs = {
             add = { text = sign },
             change = { text = sign },
             delete = { text = sign },
@@ -13,7 +12,6 @@ return {
             changedelete = { text = sign },
             untracked = { text = sign },
         },
-        -- Keymappings
         on_attach = function(buffer)
             local gs = package.loaded.gitsigns
 
