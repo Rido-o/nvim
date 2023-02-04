@@ -33,7 +33,8 @@ return {
 
         -- modify highlight groups
         local nt_bg = vim.api.nvim_get_hl_by_name('TabLine', true).background
-        vim.api.nvim_set_hl(0, 'NeoTreeWinSeparator', { fg = nt_bg, bg = nt_bg }) -- NOTE t separator is not correct
+        local sep_bg = vim.api.nvim_get_hl_by_name('Normal', true).background
+        vim.api.nvim_set_hl(0, 'NeoTreeWinSeparator', { fg = sep_bg, bg = sep_bg }) -- NOTE t separator is not correct
         vim.api.nvim_set_hl(0, 'NeoTreeNormal', { bg = nt_bg })
         vim.api.nvim_set_hl(0, 'NeoTreeNormalNC', { bg = nt_bg })
 
