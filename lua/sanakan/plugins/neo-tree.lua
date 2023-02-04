@@ -27,10 +27,10 @@ return {
     keys = {
         { '<leader>n', focus_neo_tree, desc = 'Focus on file explorer' },
     },
+    init = function()
+        vim.g.neo_tree_remove_legacy_commands = true -- remove legacy commands
+    end,
     config = function()
-        -- remove legacy commands
-        vim.g.neo_tree_remove_legacy_commands = true
-
         -- modify highlight groups
         local nt_bg = vim.api.nvim_get_hl_by_name('TabLine', true).background
         local sep_bg = vim.api.nvim_get_hl_by_name('Normal', true).background
