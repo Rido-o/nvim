@@ -58,6 +58,11 @@ vim.api.nvim_create_autocmd('BufEnter', {
     command = 'setlocal formatoptions-=cro',
 })
 
+-- resize splits if window got resized
+vim.api.nvim_create_autocmd('VimResized', {
+    command = 'tabdo wincmd =',
+})
+
 -- Set shell to Windows PowerShell if on windows -- :help shell-powershell
 if vim.g.os == 'Windows' then
     opt.shell = 'pwsh.exe'
