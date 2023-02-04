@@ -39,7 +39,7 @@ return {
                     end,
                 },
             },
-            prompt_prefix = '   ',
+            prompt_prefix = require('sanakan.icons').telescope_prefix,
             selection_caret = '  ',
             sorting_strategy = 'ascending',
             layout_config = {

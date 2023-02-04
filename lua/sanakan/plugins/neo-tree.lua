@@ -54,11 +54,11 @@ return {
                 indent = {
                     with_markers = true,
                     with_expanders = true,
-                    expander_collapsed = '‣',
-                    expander_expanded = '⏷',
+                    expander_collapsed = require('sanakan.icons').tree.collapsed,
+                    expander_expanded = require('sanakan.icons').tree.expanded,
                 },
                 modified = {
-                    symbol = '●',
+                    symbol = require('sanakan.icons').tree.modified,
                     highlight = 'WarningMsg',
                 },
             },

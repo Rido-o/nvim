@@ -2,7 +2,7 @@ return {
     'neovim/nvim-lspconfig',
     config = function()
         -- Set lsp sign column signs
-        local signs = { Error = ' ', Warn = '⚠ ', Hint = ' ', Info = ' ' } -- 
+        local signs = require('sanakan.icons').diagnostics
         for type, icon in pairs(signs) do
             local hl = 'DiagnosticSign' .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })

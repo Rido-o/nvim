@@ -30,7 +30,7 @@ opt.termguicolors = true -- Required for some color schemes and colorizer
 opt.undodir = vim.fn.stdpath('cache') .. '/undo' -- Undo directory
 opt.completeopt = { 'menuone', 'noselect' } -- Set completeopt to have a better completion experience
 opt.list = true
-opt.listchars = { trail = '-', tab = '  ' } -- 'trail:­,tab:  ,extends:»,precedes:«,nbsp:⣿,eol:¬'
+opt.listchars = require('sanakan.icons').listchars
 opt.laststatus = 3 -- Enables global statusline
 opt.guifont = { 'Hack Nerd Font Mono:h11' } -- Font for gui nvim
 

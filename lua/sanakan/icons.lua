@@ -7,6 +7,11 @@ M.icons = {
         mac = '',
         windows = '',
     },
+    tree = {
+        modified = '●',
+        collapsed = '‣',
+        expanded = '⏷',
+    },
     statusline = {
         vi_right_indicator = '█',
         lsp = '⎈ ',
@@ -15,7 +20,7 @@ M.icons = {
         modified = '●',
     },
     tabline = {
-        separator = '┃',
+        separator = '┃', -- ▎ ┃
         modified = '●',
     },
     listchars = {

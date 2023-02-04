@@ -13,12 +13,13 @@ return {
     config = function()
         local get_hex = require('cokeline/utils').get_hex
         local scripts = { '⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹' }
+        local icons = require('sanakan.icons').tabline
 
         local components = {
             space = { text = ' ' },
             two_space = { text = '  ' },
             separator = {
-                text = '┃', -- ▎┃
+                text = icons.separator,
                 fg = function(buffer)
                     return buffer.is_focused and get_hex('Special', 'fg')
                 end,
@@ -52,7 +53,7 @@ return {
             },
             modified = {
                 text = function(buffer)
-                    return buffer.is_modified and '●' or ' '
+                    return buffer.is_modified and icons.modified or ' '
                 end,
                 fg = get_hex('WarningMsg', 'fg'),
             },

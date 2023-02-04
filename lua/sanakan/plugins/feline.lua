@@ -43,24 +43,7 @@ return {
             COMMAND = 'yellow',
         }
 
-        local icons = {
-            vi_right_indicator = '█',
-            os_linux = '',
-            os_mac = '',
-            os_windows = '',
-            diagnostic_errors = ' ',
-            diagnostic_warnings = '⚠ ',
-            diagnostic_hints = ' ',
-            diagnostic_info = ' ',
-            git_branch = ' ', -- 
-            git_added = '+', -- 
-            git_changed = '~', -- 
-            git_removed = '-', -- 
-            lsp = '⎈ ',
-            cursor_line_percentage = '☰ ',
-            cursor_position = ' ',
-            file_modified = '●',
-        }
+        local icons = require('sanakan.icons')
 
         local function space_sep(color)
             return {
@@ -73,11 +56,11 @@ return {
             local os = vim.bo.fileformat:upper()
             local icon
             if os == 'UNIX' then
-                icon = icons.os_linux
+                icon = icons.os.linux
             elseif os == 'MAC' then
-                icon = icons.os_mac
+                icon = icons.os.mac
             else
-                icon = icons.os_windows
+                icon = icons.os.windows
             end
             return icon
         end
@@ -110,7 +93,7 @@ return {
                 icon = '',
             },
             vi_right_indicator = {
-                provider = icons.vi_right_indicator,
+                provider = icons.statusline.vi_right_indicator,
                 hl = function()
                     return { fg = vi_mode_utils.get_mode_color() }
                 end,
@@ -136,7 +119,7 @@ return {
             },
             file_modified = {
                 provider = function()
-                    return vim.bo.modified and icons.file_modified or ''
+                    return vim.bo.modified and icons.statusline.modified or ''
                 end,
                 hl = { fg = 'warnings', bg = 'black' },
                 right_sep = space_sep('black'),
@@ -166,7 +149,7 @@ return {
                 left_sep = space_sep('darkgray'),
                 right_sep = space_sep('darkgray'),
                 icon = {
-                    str = icons.git_branch,
+                    str = icons.git.branch,
                     hl = { fg = 'orange', style = 'NONE' },
                 },
             },
@@ -174,19 +157,19 @@ return {
                 provider = 'git_diff_added',
                 hl = { fg = 'green', bg = 'darkgray', style = 'bold' },
                 right_sep = space_sep('darkgray'),
-                icon = icons.git_added,
+                icon = icons.git.added,
             },
             git_diff_changed = {
                 provider = 'git_diff_changed',
                 hl = { fg = 'yellow', bg = 'darkgray', style = 'bold' },
                 right_sep = space_sep('darkgray'),
-                icon = icons.git_changed,
+                icon = icons.git.modified,
             },
             git_diff_removed = {
                 provider = 'git_diff_removed',
                 hl = { fg = 'red', bg = 'darkgray', style = 'bold' },
                 right_sep = space_sep('darkgray'),
-                icon = icons.git_removed,
+                icon = icons.git.removed,
             },
             cursor_line_percentage = {
                 provider = 'line_percentage',
@@ -194,7 +177,7 @@ return {
                 left_sep = space_sep('darkgray'),
                 right_sep = space_sep('darkgray'),
                 icon = {
-                    str = icons.cursor_line_percentage,
+                    str = icons.statusline.cursor_line_percentage,
                     hl = { fg = 'cyan', style = 'NONE' },
                 },
             },
@@ -203,7 +186,7 @@ return {
                 hl = { bg = 'darkgray', style = 'bold' },
                 left_sep = space_sep('darkgray'),
                 icon = {
-                    str = icons.cursor_position,
+                    str = icons.statusline.cursor_position,
                     hl = { fg = 'cyan', style = 'NONE' },
                 },
             },
@@ -213,7 +196,7 @@ return {
                 left_sep = space_sep('errors'),
                 right_sep = space_sep('errors'),
                 icon = {
-                    str = icons.diagnostic_errors,
+                    str = icons.diagnostics.Error,
                     hl = { style = 'NONE' },
                 },
             },
@@ -223,7 +206,7 @@ return {
                 left_sep = space_sep('warnings'),
                 right_sep = space_sep('warnings'),
                 icon = {
-                    str = icons.diagnostic_warnings,
+                    str = icons.diagnostics.Warn,
                     hl = { style = 'NONE' },
                 },
             },
@@ -233,7 +216,7 @@ return {
                 left_sep = space_sep('hints'),
                 right_sep = space_sep('hints'),
                 icon = {
-                    str = icons.diagnostic_hints,
+                    str = icons.diagnostics.Hint,
                     hl = { style = 'NONE' },
                 },
             },
@@ -243,7 +226,7 @@ return {
                 left_sep = space_sep('info'),
                 right_sep = space_sep('info'),
                 icon = {
-                    str = icons.diagnostic_info,
+                    str = icons.diagnostics.Info,
                     hl = { style = 'NONE' },
                 },
             },
@@ -253,7 +236,7 @@ return {
                 left_sep = space_sep('darkgray'),
                 right_sep = space_sep('darkgray'),
                 icon = {
-                    str = icons.lsp,
+                    str = icons.statusline.lsp,
                     hl = { fg = 'yellow' },
                 },
                 truncate_hide = true,

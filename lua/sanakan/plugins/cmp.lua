@@ -22,33 +22,7 @@ return {
         local luasnip = require('luasnip')
 
         -- Lsp kind icons
-        local kind_icons = {
-            Text = '',
-            Method = '',
-            Function = '',
-            Constructor = '',
-            Field = '',
-            Variable = '',
-            Class = 'ﴯ',
-            Interface = '',
-            Module = '',
-            Property = 'ﰠ',
-            Unit = '',
-            Value = '',
-            Enum = '',
-            Keyword = '',
-            Snippet = '',
-            Color = '',
-            File = '',
-            Reference = '',
-            Folder = '',
-            EnumMember = '',
-            Constant = '',
-            Struct = '',
-            Event = '',
-            Operator = '',
-            TypeParameter = '',
-        }
+        local kind_icons = require('sanakan.icons').kinds
 
         cmp.setup({
             snippet = {
