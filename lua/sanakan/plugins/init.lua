@@ -22,7 +22,7 @@ return {
         },
     },
     {
-        'nvim-neorg/neorg',
+        'nvim-neorg/neorg', -- TODO Add local leader bindings for norg files
         build = ':Neorg sync-parsers',
         dependencies = {
             'nvim-lua/plenary.nvim',
