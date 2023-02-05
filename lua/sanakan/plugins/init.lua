@@ -3,30 +3,6 @@ return {
 
     ---- UI ----
     {
-        'kevinhwang91/nvim-ufo',
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter',
-            'kevinhwang91/promise-async',
-        },
-        opts = {
-            open_fold_hl_timeout = 0,
-            close_fold_kinds = { 'imports', 'comment' },
-            provider_selector = function()
-                return { 'treesitter', 'indent' }
-            end,
-        },
-        config = function(_, opts)
-            vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-            vim.o.foldcolumn = '1'
-            vim.o.foldlevel = 99
-            vim.o.foldlevelstart = 99
-            vim.o.foldenable = true
-            require('ufo').setup(opts)
-            vim.keymap.set('n', 'zO', require('ufo').openAllFolds, { desc = 'Open all folds' })
-            vim.keymap.set('n', 'zC', require('ufo').closeAllFolds, { desc = 'Close all folds' })
-        end,
-    },
-    {
         'NvChad/nvim-colorizer.lua',
         config = true,
     },
