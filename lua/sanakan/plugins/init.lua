@@ -111,7 +111,7 @@ return {
             }, -- Omnidirectional search
         },
         config = function()
-            require('leap').set_default_keymaps()
+            require('leap').set_default_keymaps() -- might not be needed with keys set
         end,
     },
     {
