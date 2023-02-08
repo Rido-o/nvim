@@ -108,7 +108,7 @@ return {
                     require('leap').leap({ target_windows = { vim.fn.win_getid() } })
                 end,
                 mode = { 'n', 'x' },
-            },
+            }, -- Omnidirectional search
         },
         config = function()
             require('leap').set_default_keymaps()
