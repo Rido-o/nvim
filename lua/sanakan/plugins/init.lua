@@ -114,6 +114,13 @@ return {
             require('leap').set_default_keymaps()
         end,
     },
+    {
+        'famiu/bufdelete.nvim',
+        cmd = 'Bdelete',
+        keys = {
+            { '<leader>bq', '<CMD>Bdelete<CR>', desc = 'Buffer delete' },
+        },
+    },
 
     ---- lSP ----
     {
@@ -150,12 +157,5 @@ return {
     {
         'kylechui/nvim-surround',
         config = true,
-    },
-    {
-        'famiu/bufdelete.nvim',
-        cmd = 'Bdelete',
-        keys = {
-            { '<leader>bq', '<CMD>Bdelete<CR>', desc = 'Buffer delete' },
-        },
     },
 }
