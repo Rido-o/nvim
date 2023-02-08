@@ -151,4 +151,11 @@ return {
         'kylechui/nvim-surround',
         config = true,
     },
+    {
+        'famiu/bufdelete.nvim',
+        cmd = 'Bdelete',
+        keys = {
+            { '<leader>bq', '<CMD>Bdelete<CR>', desc = 'Buffer delete' },
+        },
+    },
 }
