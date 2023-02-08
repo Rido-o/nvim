@@ -74,4 +74,4 @@ function _G.Replace_operator(motion)
 end
 
 map({ 'n', 'v' }, 'r', _G.Replace_operator, { desc = 'Replace', expr = true })
-map('n', 'rr', '<ESC><CMD>lua _G.Replace_operator("r")<CR>', { desc = 'Replace line' })
+map('n', 'rr', '<CMD>lua _G.Replace_operator("r")<CR>', { desc = 'Replace line' })
