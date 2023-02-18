@@ -11,7 +11,8 @@
 * pip
 * hyperfine
 * Hack-nerd - For font on gui nvim
-### Lsp
+### Mason
+### Lsp - Installed through mason except on nixos
 
 # General installtion guide
 * Install neovim
