@@ -6,6 +6,7 @@
 * git
 ### General
 * Hack-nerd - For font on gui nvim
+* Lazygit - For git functionality
 #### Keybinds
 * python
 * hyperfine
