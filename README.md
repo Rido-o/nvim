@@ -16,7 +16,7 @@
 * pip
 #### Lspconfig - Installed through mason except on nixos
 
-# General installtion guide
+# General installation guide
 * Install neovim
 * Install prerequisuites
 * git clone https://github.com/Rido-o/nvim.git <nvim-config-path>
