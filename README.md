@@ -4,15 +4,17 @@
 ### Bare minimum
 * neovim
 * git
-### Extras
+### General
+* Hack-nerd - For font on gui nvim
+#### Keybinds
+* python
+* hyperfine
+### Plugins
 * gcc - For treesitter & telescope-fzf support
 * ripgrep & fd - For telescope functionality
-* python
+#### Mason
 * pip
-* hyperfine
-* Hack-nerd - For font on gui nvim
-### Mason
-### Lsp - Installed through mason except on nixos
+#### Lspconfig - Installed through mason except on nixos
 
 # General installtion guide
 * Install neovim
