@@ -45,7 +45,7 @@ return {
 
         -- Individual server settings
         local settings = {
-            sumneko_lua = {
+            lua_ls = {
                 Lua = {
                     diagnostics = {
                         globals = { 'vim' },
@@ -58,9 +58,9 @@ return {
         -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
         local servers = {}
         if vim.g.os == 'Windows' then
-            servers = { 'pyright', 'sumneko_lua' }
+            servers = { 'pyright', 'lua_ls' }
         else
-            servers = { 'pyright', 'sumneko_lua', 'rnix' }
+            servers = { 'pyright', 'lua_ls', 'rnix' }
         end
         for _, lsp in ipairs(servers) do
             require('lspconfig')[lsp].setup({
