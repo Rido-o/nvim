@@ -28,6 +28,9 @@ return {
         'AlexvZyl/nordic.nvim',
         lazy = true,
         config = function()
+            require('nordic').setup({
+                theme = 'onedark',
+            })
             require('nordic').load()
         end,
     },
