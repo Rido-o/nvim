@@ -8,8 +8,8 @@ return {
         {
             'nvim-telescope/telescope-fzf-native.nvim',
             -- *Won't work with windows
-            build = 'gcc', -- was previously make
-            cond = vim.fn.executable('gcc') == 1,
+            build = 'make', -- would preferrably be gcc
+            cond = vim.fn.executable('make') == 1,
         },
     },
     cmd = 'Telescope',
