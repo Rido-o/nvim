@@ -14,9 +14,9 @@ return {
 
         require('mason-tool-installer').setup({
             ensure_installed = {
-                'stylua',
-                'flake8',
-                'black',
+                -- 'stylua',
+                -- 'flake8',
+                -- 'black',
             },
             auto_update = false,
         })
