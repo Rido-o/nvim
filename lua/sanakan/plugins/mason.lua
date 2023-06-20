@@ -4,7 +4,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
-	cond = vim.g.distro ~= "nixos",
+	cond = vim.g.distro ~= "NixOS",
 	config = function()
 		require("mason").setup()
 

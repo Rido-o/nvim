@@ -1,12 +1,12 @@
 -- Options
 local opt = vim.opt
 
-opt.encoding = 'utf-8' -- The encoding displayed is UTF-8 by default
-opt.fileencoding = 'utf-8'
-opt.fileencodings = 'utf-8' -- Causes problems with fugitive
+opt.encoding = "utf-8" -- The encoding displayed is UTF-8 by default
+opt.fileencoding = "utf-8"
+opt.fileencodings = "utf-8" -- Causes problems with fugitive
 opt.splitbelow = true -- Split down
 opt.splitright = true -- Split right
-opt.clipboard = 'unnamedplus' -- Use system clipboard
+opt.clipboard = "unnamedplus" -- Use system clipboard
 opt.number = true -- Print line number
 opt.relativenumber = true -- Enables the relative numberline
 opt.cursorline = true -- Change the cursor in insert mode
@@ -25,50 +25,50 @@ opt.smartcase = true
 opt.scrolloff = 5 -- How close the cursor should be before the page scrolls
 opt.timeoutlen = 250 -- Default is 1000, used for which key
 opt.updatetime = 250 -- For vim signify ? not needed?
-opt.signcolumn = 'yes:1' -- Add permanant column for signs on the left
+opt.signcolumn = "yes:1" -- Add permanant column for signs on the left
 opt.termguicolors = true -- Required for some color schemes and colorizer
-opt.undodir = vim.fn.stdpath('cache') .. '/undo' -- Undo directory
-opt.completeopt = { 'menuone', 'noselect' } -- Set completeopt to have a better completion experience
+opt.undodir = vim.fn.stdpath("cache") .. "/undo" -- Undo directory
+opt.completeopt = { "menuone", "noselect" } -- Set completeopt to have a better completion experience
 opt.list = true
-opt.listchars = require('sanakan.icons').listchars
+opt.listchars = require("sanakan.icons").listchars
 opt.laststatus = 3 -- Enables global statusline
-opt.guifont = { 'Hack Nerd Font Mono:h11' } -- Font for gui nvim
+opt.guifont = { "Hack Nerd Font Mono:h11" } -- Font for gui nvim
 
 -- Set leader keys
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ','
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 -- Get OS
 local raw_os = vim.loop.os_uname().sysname
-if string.find(raw_os, 'Windows') then
-    vim.g.os = 'Windows'
-elseif raw_os == 'Linux' then
-    vim.g.os = 'Linux'
+if string.find(raw_os, "Windows") then
+    vim.g.os = "Windows"
+elseif raw_os == "Linux" then
+    vim.g.os = "Linux"
     -- Get Distro
-    vim.g.distro = vim.fn.system("sed -n 's/^DISTRIB_ID=//p' /etc/*-release | tr -d '\n'")
+    vim.g.distro = vim.fn.system("sed -n 's/^NAME=//p' /etc/*-release | tr -d '\n'")
 end
 
-if vim.g.os == 'Windows' then
+if vim.g.os == "Windows" then
     opt.linespace = 2
 end
 
 -- Disable auto-commenting
-vim.api.nvim_create_autocmd('BufEnter', {
-    group = vim.api.nvim_create_augroup('DiableAutoComment', { clear = true }),
-    command = 'setlocal formatoptions-=cro',
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = vim.api.nvim_create_augroup("DiableAutoComment", { clear = true }),
+    command = "setlocal formatoptions-=cro",
 })
 
 -- resize splits if window got resized
-vim.api.nvim_create_autocmd('VimResized', {
-    command = 'tabdo wincmd =',
+vim.api.nvim_create_autocmd("VimResized", {
+    command = "tabdo wincmd =",
 })
 
 -- Set shell to Windows PowerShell if on windows -- :help shell-powershell
-if vim.g.os == 'Windows' then
-    opt.shell = 'pwsh.exe'
-    opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
-    opt.shellxquote = ''
-    opt.shellquote = ''
-    opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s'
-    opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s'
+if vim.g.os == "Windows" then
+    opt.shell = "pwsh.exe"
+    opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
+    opt.shellxquote = ""
+    opt.shellquote = ""
+    opt.shellredir = "2>&1 | Out-File -Encoding UTF8 %s"
+    opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s"
 end
