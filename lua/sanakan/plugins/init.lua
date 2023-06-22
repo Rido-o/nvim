@@ -32,8 +32,8 @@ return {
         opts = {
             load = {
                 ['core.defaults'] = {},
-                ['core.norg.concealer'] = {},
-                ['core.norg.dirman'] = {
+                ['core.concealer'] = {},
+                ['core.dirman'] = {
                     config = {
                         workspaces = {
                             notes = '~/notes',
@@ -41,7 +41,7 @@ return {
                         },
                     },
                 },
-                ['core.norg.completion'] = {
+                ['core.completion'] = {
                     config = {
                         engine = 'nvim-cmp',
                     },
