@@ -1,5 +1,5 @@
 return {
-    -- potential plugins { trouble.nvim, nvim-navic/barbecue, aerial.nvim, neogit, alpha-nvim, fidget.nvim, neorg/orgmode, lsp-zero, heirline.nvim, diffview.nvim, nvim-spectre, searchbox.nvim, statuscol.nvim, substitute.nvim, vim-wordmotion, reticle.nvim }
+    -- potential plugins { trouble.nvim, nvim-navic/barbecue, aerial.nvim, neogit, alpha-nvim, fidget.nvim, lsp-zero, heirline.nvim, diffview.nvim, nvim-spectre, searchbox.nvim, statuscol.nvim, substitute.nvim, vim-wordmotion, reticle.nvim, nvim-ufo }
 
     ---- UI ----
     {
@@ -91,7 +91,8 @@ return {
     },
     {
         'ggandor/leap.nvim',
-        dependencies = { -- can repeat.vim for . functionality
+        dependencies = {
+            -- can repeat.vim for . functionality
             'ggandor/flit.nvim', -- enhanced f/t motions
             config = true,
             keys = {
