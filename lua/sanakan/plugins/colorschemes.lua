@@ -18,6 +18,7 @@ return {
         lazy = true,
         opts = {
             globalStatus = true,
+            colors = { theme = { all = { ui = { bg_gutter = 'none' } } } },
         },
     },
     {
