@@ -40,7 +40,7 @@ require('lazy').setup('sanakan.plugins', {
     },
 })
 
--- Select theme -- { pywal, tokyonight, kanagawa, miramare }
+-- Select theme -- { pywal, tokyonight, kanagawa, miramare, nordic, mellifluous }
 pcall(function()
     local theme_name = 'kanagawa'
     vim.cmd('silent! colorscheme ' .. theme_name)
