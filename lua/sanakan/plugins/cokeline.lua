@@ -53,7 +53,8 @@ return {
             },
         }
 
-        local sidebar = { -- TODO add padding to sidebar to make it respect separator
+        local sidebar = {
+            -- TODO add padding to sidebar to make it respect separator
             file_explorer = {
                 filetype = 'neo-tree',
                 components = {
