@@ -1,5 +1,5 @@
 return {
-    'noib3/nvim-cokeline',
+    'willothy/nvim-cokeline',
     dependencies = {
         'kyazdani42/nvim-web-devicons',
     },
@@ -56,7 +56,8 @@ return {
         local sidebar = {
             -- TODO add padding to sidebar to make it respect separator
             file_explorer = {
-                filetype = 'neo-tree',
+                -- filetype = 'neo-tree',
+                filetype = { 'neo-tree', 'undotree' },
                 components = {
                     {
                         text = function()
