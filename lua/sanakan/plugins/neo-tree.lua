@@ -85,7 +85,9 @@ return {
                 filtered_items = {
                     hide_dotfiles = false,
                 },
-                follow_current_file = true,
+                follow_current_file = {
+                    enabled = true,
+                },
                 group_empty_dirs = true,
                 use_libuv_file_watcher = true,
                 bind_to_cwd = false,
