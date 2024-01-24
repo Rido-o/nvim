@@ -1,38 +1,72 @@
 {
-  # https://primamateria.github.io/blog/neovim-nix/#add-lua-script-config
-  description = "My own Neovim flake";
+  # https://github.com/NvChad/NvChad/issues/956 # https://github.com/redyf/nix-flake-nvchad/tree/main
+  description = "NvChad's Neovim Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
-    neovim = {
-      url = "github:neovim/neovim/stable?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, neovim }:
-    let
-      overlayFlakeInputs = prev: final: {
-        neovim = neovim.packages.x86_64-linux.neovim;
-      };
+  outputs =
+    { self
+    , nixpkgs
+    , utils
+    , ...
+    }:
+    utils.lib.eachDefaultSystem (
+      system:
+      let
+        inherit (nixpkgs) lib;
+        pkgs = nixpkgs.legacyPackages.${system};
 
-      overlayMyNeovim = prev: final: {
-        myNeovim = pkgs.wrapNeovim pkgs.neovim { } {
-          pkgs = final;
+        nvim =
+          pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped
+            (pkgs.neovimUtils.makeNeovimConfig
+              {
+                customRC = ''
+                  set runtimepath^=${./.}
+                  source ${./.}/init.lua
+                '';
+              }
+            // {
+              wrapperArgs = [
+                "--prefix"
+                "PATH"
+                ":"
+                "${lib.makeBinPath [
+                  pkgs.sumneko-lua-language-server
+                  pkgs.gcc
+                  pkgs.nil
+                  pkgs.nodePackages.pyright
+                  pkgs.statix
+                  pkgs.nixpkgs-fmt
+                  pkgs.stylua
+                  pkgs.black
+                  pkgs.gnumake
+                  pkgs.ripgrep
+                  pkgs.fd
+                ]}"
+              ];
+            });
+      in
+      {
+        overlays = {
+          neovim = _: _prev: {
+            neovim = nvim;
+          };
+          default = self.overlays.neovim;
         };
-      };
 
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        overlays = [ overlayFlakeInputs overlayMyNeovim ];
-      };
+        packages = rec {
+          neovim = nvim;
+          default = neovim;
+        };
 
-    in
-    {
-      packages.x86_64-linux.default = pkgs.myNeovim;
-      apps.x86_64-linux.default = {
-        type = "app";
-        program = "${pkgs.myNeovim}/bin/nvim";
-      };
-    };
+        devShells.default = pkgs.mkShell {
+          nativeBuildInputs = [
+            pkgs.stylua
+          ];
+        };
+      }
+    );
 }
