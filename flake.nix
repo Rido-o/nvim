@@ -25,7 +25,7 @@
               {
                 customRC = ''
                   set runtimepath^=${./.}
-                  source ${./.}/init.lua
+                  " source ${./.}/init.lua
                 '';
               }
             // {
