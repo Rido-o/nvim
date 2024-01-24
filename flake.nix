@@ -25,8 +25,8 @@
               {
                 customRC = ''
                   set runtimepath^=${./.}
+                  source ${./.}/init.lua
                 '';
-                # source ${./.}/init.lua
               }
             // {
               wrapperArgs = [
@@ -62,11 +62,11 @@
           default = neovim;
         };
 
-        devShells.default = pkgs.mkShell {
-          nativeBuildInputs = [
-            pkgs.stylua
-          ];
-        };
+        # devShells.default = pkgs.mkShell {
+        #   nativeBuildInputs = [
+        #     pkgs.stylua
+        #   ];
+        # };
       }
     );
 }
