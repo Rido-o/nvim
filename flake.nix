@@ -7,12 +7,7 @@
     utils.url = "github:numtide/flake-utils";
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , utils
-    , ...
-    }:
+  outputs = { self, nixpkgs, utils, ... }:
     utils.lib.eachDefaultSystem (
       system:
       let
@@ -54,7 +49,7 @@
       in
       {
         overlays = {
-          neovim = _: _prev: {
+          neovim = self: super: {
             neovim = nvim;
           };
           default = self.overlays.neovim;
