@@ -1,5 +1,6 @@
 {
   # https://github.com/NvChad/NvChad/issues/956 # https://github.com/redyf/nix-flake-nvchad/tree/main
+  # nix run github:Rido-o/nvim
   description = "Rido's neovim configuration";
 
   inputs = {
