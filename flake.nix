@@ -22,19 +22,21 @@
         nvim =
           pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped
             (pkgs.neovimUtils.makeNeovimConfig
-              # {
-              #   customRC = ''
-              #     set runtimepath^=${./.}
-              #     source ./init.lua
-              #   '';
-              # }
-              # // 
               {
-                wrapperArgs = [
-                  "--prefix"
-                  "PATH"
-                  ":"
-                  "${lib.makeBinPath [
+                customRC = ''
+                  set runtimepath^=${./.}
+                  source ${./.}/init.lua
+                '';
+                #set runtimepath^=${./.}
+                # source ./init.lua
+              }
+            //
+            {
+              wrapperArgs = [
+                "--prefix"
+                "PATH"
+                ":"
+                "${lib.makeBinPath [
                     pkgs.sumneko-lua-language-server
                     pkgs.gcc
                     pkgs.nil
@@ -50,8 +52,8 @@
                     pkgs.xclip
                     pkgs.lemonade
                   ]}"
-                ];
-              }
+              ];
+            }
             );
       in
       {
