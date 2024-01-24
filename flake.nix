@@ -46,7 +46,9 @@
                     pkgs.gnumake
                     pkgs.ripgrep
                     pkgs.fd
+
                     pkgs.xclip
+                    pkgs.lemonade
                   ]}"
                 ];
               }
