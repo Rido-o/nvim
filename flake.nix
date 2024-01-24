@@ -3,9 +3,7 @@
   # nix run github:Rido-o/nvim
   description = "Rido's neovim configuration";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-  };
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
   outputs = { nixpkgs, ... }:
     let
