@@ -1,1 +1,2 @@
-require('sanakan')
+-- require('sanakan')
+print('hello')
