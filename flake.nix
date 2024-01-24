@@ -1,6 +1,6 @@
 {
   # https://github.com/NvChad/NvChad/issues/956 # https://github.com/redyf/nix-flake-nvchad/tree/main
-  description = "NvChad's Neovim Configuration";
+  description = "Rido's neovim configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -9,15 +9,15 @@
   outputs = { nixpkgs, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-      forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f rec {
+      forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
         inherit system;
         pkgs = import nixpkgs { inherit system; };
       });
     in
     {
-      packages = forEachSupportedSystem ({ pkgs, system }: with pkgs; {
-        default = wrapNeovimUnstable neovim-unwrapped
-          (neovimUtils.makeNeovimConfig
+      packages = forEachSupportedSystem ({ pkgs, system }: {
+        default = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped
+          (pkgs.neovimUtils.makeNeovimConfig
             {
               customRC = ''
                 set runtimepath^=${./.}
@@ -26,7 +26,7 @@
             }
           //
           {
-            wrapperArgs = [
+            wrapperArgs = with pkgs; [
               "--prefix"
               "PATH"
               ":"
@@ -42,7 +42,6 @@
                 gnumake
                 ripgrep
                 fd
-                xclip
               ]}"
             ];
           }
