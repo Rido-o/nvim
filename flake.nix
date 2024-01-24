@@ -42,7 +42,7 @@
                 gnumake
                 ripgrep
                 fd
-                lemonade # ssh clipboard
+                xclip
               ]}"
             ];
           }
