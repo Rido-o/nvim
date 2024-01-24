@@ -31,19 +31,19 @@
               "PATH"
               ":"
               "${pkgs.lib.makeBinPath [
-                    pkgs.sumneko-lua-language-server
-                    pkgs.gcc
-                    pkgs.nil
-                    pkgs.nodePackages.pyright
-                    pkgs.statix
-                    pkgs.nixpkgs-fmt
-                    pkgs.stylua
-                    pkgs.black
-                    pkgs.gnumake
-                    pkgs.ripgrep
-                    pkgs.fd
-                    pkgs.lemonade # ssh clipboard
-                  ]}"
+                pkgs.sumneko-lua-language-server
+                pkgs.gcc
+                pkgs.nil
+                pkgs.nodePackages.pyright
+                pkgs.statix
+                pkgs.nixpkgs-fmt
+                pkgs.stylua
+                pkgs.black
+                pkgs.gnumake
+                pkgs.ripgrep
+                pkgs.fd
+                pkgs.lemonade # ssh clipboard
+              ]}"
             ];
           }
           );
