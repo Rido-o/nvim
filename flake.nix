@@ -27,8 +27,6 @@
                   set runtimepath^=${./.}
                   source ${./.}/init.lua
                 '';
-                #set runtimepath^=${./.}
-                # source ./init.lua
               }
             //
             {
@@ -48,9 +46,7 @@
                     pkgs.gnumake
                     pkgs.ripgrep
                     pkgs.fd
-
-                    pkgs.xclip
-                    pkgs.lemonade
+                    pkgs.lemonade # ssh clipboard
                   ]}"
               ];
             }
