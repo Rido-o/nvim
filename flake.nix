@@ -31,16 +31,16 @@
               ":"
               "${lib.makeBinPath [
                 sumneko-lua-language-server
-                gcc
+                gcc # for treesitter # should work for fzf-native but wasn't
                 nil
                 nodePackages.pyright
                 statix
                 nixpkgs-fmt
                 stylua
                 black
-                gnumake
-                ripgrep
-                fd
+                gnumake # for fzf-native
+                ripgrep # for telescope live_grep
+                fd # telescope optional dependency
               ]}"
             ];
           }
