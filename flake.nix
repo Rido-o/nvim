@@ -13,7 +13,7 @@
         pkgs = import nixpkgs { inherit system; };
       });
     in
-    {
+    rec {
       packages = forEachSupportedSystem ({ pkgs, system }: {
         default = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped
           (pkgs.neovimUtils.makeNeovimConfig
@@ -46,5 +46,9 @@
           }
           );
       });
+      overlays = rec {
+        neovim = _: _: { neovim = packages.x86_64-linux.default; };
+        default = neovim;
+      };
     };
 }
