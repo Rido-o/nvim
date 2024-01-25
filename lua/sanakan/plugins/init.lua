@@ -151,12 +151,26 @@ return {
         'numToStr/Comment.nvim',
         keys = {
             { '<leader>c', '<plug>(comment_toggle_linewise_current)', mode = 'n', desc = 'Toggle comment' },
-            { '<leader>c', '<plug>(comment_toggle_linewise_visual)', mode = 'x', desc = 'Toggle comment' },
+            { '<leader>c', '<plug>(comment_toggle_linewise_visual)',  mode = 'x', desc = 'Toggle comment' },
         },
         config = true,
     },
     {
         'kylechui/nvim-surround',
         config = true,
+    },
+    {
+        'stevearc/conform.nvim',
+        opts = {
+            formatter_by_ft = {
+                lua = { 'stylua' },
+                python = { 'black' },
+                nix = { 'nixpkgs_fmt' },
+            },
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_fallback = true,
+            },
+        },
     },
 }
