@@ -151,7 +151,7 @@ return {
         'numToStr/Comment.nvim',
         keys = {
             { '<leader>c', '<plug>(comment_toggle_linewise_current)', mode = 'n', desc = 'Toggle comment' },
-            { '<leader>c', '<plug>(comment_toggle_linewise_visual)',  mode = 'x', desc = 'Toggle comment' },
+            { '<leader>c', '<plug>(comment_toggle_linewise_visual)', mode = 'x', desc = 'Toggle comment' },
         },
         config = true,
     },
@@ -161,16 +161,28 @@ return {
     },
     {
         'stevearc/conform.nvim',
+        event = { 'BufWritePre' },
+        cmd = { 'ConformInfo' },
         opts = {
-            formatter_by_ft = {
+            formatters_by_ft = {
                 lua = { 'stylua' },
                 python = { 'black' },
                 nix = { 'nixpkgs_fmt' },
             },
-            format_on_save = {
-                timeout_ms = 500,
-                lsp_fallback = true,
-            },
+            format_on_save = { timeout_ms = 500, lsp_fallback = true },
         },
+    },
+    {
+        'mfussenegger/nvim-lint',
+        config = function(_, _)
+            require('lint').linters_by_ft = {
+                nix = { 'statix' },
+            }
+            vim.api.nvim_create_autocmd({ 'TextChanged', 'BufEnter', 'BufWritePost' }, {
+                callback = function()
+                    require('lint').try_lint()
+                end,
+            })
+        end,
     },
 }
