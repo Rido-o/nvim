@@ -5,7 +5,7 @@ return {
     },
     event = 'ColorScheme',
     config = function()
-        local get_hex = require('cokeline/utils').get_hex
+        local get_hex = require('cokeline.hlgroups').get_hl_attr
         local scripts = { '⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹' }
         local icons = require('sanakan.icons').tabline
 

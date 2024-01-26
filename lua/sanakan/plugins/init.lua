@@ -8,7 +8,10 @@ return {
     },
     {
         'lukas-reineke/indent-blankline.nvim',
-        -- opts = { char = '┊' }
+        main = 'ibl',
+        opts = {
+            indent = { char = '┊' },
+        },
     },
     {
         'nvim-neorg/neorg-telescope',
