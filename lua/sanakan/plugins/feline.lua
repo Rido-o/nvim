@@ -248,6 +248,13 @@ return {
                 right_sep = space_sep('darkgray'),
                 truncate_hide = true,
             },
+            search_count = {
+                provider = 'search_count',
+                hl = { bg = 'darkgray' },
+                left_sep = space_sep('darkgray'),
+                right_sep = space_sep('darkgray'),
+                truncate_hide = true,
+            },
             default = {
                 provider = '',
             },
@@ -271,6 +278,7 @@ return {
                     components.default,
                 },
                 { -- Right
+                    components.search_count,
                     components.lsp_names,
                     components.file_os,
                     components.file_encoding,
