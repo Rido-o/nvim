@@ -241,6 +241,13 @@ return {
                 },
                 truncate_hide = true,
             },
+            macro = {
+                provider = 'macro',
+                hl = { bg = 'darkgray' },
+                left_sep = space_sep('darkgray'),
+                right_sep = space_sep('darkgray'),
+                truncate_hide = true,
+            },
             default = {
                 provider = '',
             },
@@ -260,6 +267,7 @@ return {
                     components.diagnostic_warnings,
                     components.diagnostic_hints,
                     components.diagnostic_info,
+                    components.macro,
                     components.default,
                 },
                 { -- Right
