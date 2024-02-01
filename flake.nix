@@ -35,6 +35,7 @@
                 nil
                 nodePackages.pyright
                 statix
+                shellcheck
                 nixpkgs-fmt
                 stylua
                 black
