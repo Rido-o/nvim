@@ -45,7 +45,7 @@
         default = neovim;
       });
       overlays = {
-        neovim = _: _: { neovim = nvim nixpkgs; };
+        neovim = _: _: { neovim = nvim; };
         default = self.overlays.neovim;
       };
     };
