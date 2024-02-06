@@ -27,9 +27,9 @@
               gcc # for treesitter # should work for fzf-native but wasn't
               nil
               nodePackages.pyright
-              statix
+              # statix
               shellcheck
-              nixpkgs-fmt
+              # nixpkgs-fmt
               stylua
               # black
               gnumake # for fzf-native
