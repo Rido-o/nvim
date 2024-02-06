@@ -17,9 +17,7 @@
               set runtimepath^=${./.}
               source ${./.}/init.lua
             '';
-          }
-        //
-        {
+          } // {
           wrapperArgs = with pkgs; [
             "--prefix"
             "PATH"
@@ -39,17 +37,16 @@
               fd # telescope optional dependency
             ]}"
           ];
-        }
-        );
+        });
     in
-    {
+    rec {
       packages = forAllSystems (pkgs: rec {
         neovim = nvim pkgs;
         default = neovim;
       });
-      overlays = forAllSystems (pkgs: {
-        neovim = _: _: { neovim = nvim pkgs; };
+      overlays = {
+        neovim = _: _: { neovim = packages.x86_64-linux.default; };
         default = self.overlays.neovim;
-      });
+      };
     };
 }
