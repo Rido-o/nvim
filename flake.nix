@@ -47,9 +47,9 @@
         neovim = nvim pkgs;
         default = neovim;
       });
-      overlays = {
-        neovim = _: _: { neovim = nvim; };
+      overlays = forAllSystems (pkgs: {
+        neovim = _: _: { neovim = nvim pkgs; };
         default = self.overlays.neovim;
-      };
+      });
     };
 }
