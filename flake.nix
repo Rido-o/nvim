@@ -45,7 +45,7 @@
         default = neovim;
       });
       overlays = {
-        neovim = _: prev: { neovim = nvim prev; };
+        neovim = _: _: { neovim = nvim.x86_64-linux.default; };
         default = self.overlays.neovim;
       };
     };
