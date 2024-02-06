@@ -1,1 +1,1 @@
--- require('sanakan')
+require('sanakan')
