@@ -1,55 +1,55 @@
 {
   # https://github.com/NvChad/NvChad/issues/956 # https://github.com/redyf/nix-flake-nvchad/tree/main
+  # https://github.com/logaMaster/neovim/tree/main
   # nix run github:Rido-o/nvim
   description = "Rido's neovim configuration";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  outputs = { nixpkgs, ... }:
+  outputs = { self, nixpkgs, ... }:
     let
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-      forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
-        inherit system;
-        pkgs = import nixpkgs { inherit system; };
-      });
-    in
-    rec {
-      packages = forEachSupportedSystem ({ pkgs, system }: {
-        default = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped
-          (pkgs.neovimUtils.makeNeovimConfig
-            {
-              customRC = ''
-                set runtimepath^=${./.}
-                source ${./.}/init.lua
-              '';
-            }
-          //
+      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forAllSystems = function: nixpkgs.lib.genAttrs systems (system: function nixpkgs.legacyPackages.${system});
+      nvim = pkgs: pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped
+        (pkgs.neovimUtils.makeNeovimConfig
           {
-            wrapperArgs = with pkgs; [
-              "--prefix"
-              "PATH"
-              ":"
-              "${lib.makeBinPath [
-                sumneko-lua-language-server
-                gcc # for treesitter # should work for fzf-native but wasn't
-                nil
-                nodePackages.pyright
-                statix
-                shellcheck
-                nixpkgs-fmt
-                stylua
-                black
-                gnumake # for fzf-native
-                ripgrep # for telescope live_grep
-                fd # telescope optional dependency
-              ]}"
-            ];
+            customRC = ''
+              set runtimepath^=${./.}
+              source ${./.}/init.lua
+            '';
           }
-          );
-      });
-      overlays = rec {
-        neovim = _: _: { neovim = packages.x86_64-linux.default; };
+        //
+        {
+          wrapperArgs = with pkgs; [
+            "--prefix"
+            "PATH"
+            ":"
+            "${lib.makeBinPath [
+              sumneko-lua-language-server
+              gcc # for treesitter # should work for fzf-native but wasn't
+              nil
+              nodePackages.pyright
+              statix
+              shellcheck
+              nixpkgs-fmt
+              stylua
+              black
+              gnumake # for fzf-native
+              ripgrep # for telescope live_grep
+              fd # telescope optional dependency
+            ]}"
+          ];
+        }
+        );
+    in
+    {
+      packages = forAllSystems (pkgs: rec {
+        neovim = nvim pkgs;
         default = neovim;
+      });
+      overlays = {
+        neovim = _: _: { neovim = nvim; };
+        default = self.overlays.neovim;
       };
     };
 }
