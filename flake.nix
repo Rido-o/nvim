@@ -31,7 +31,7 @@
               shellcheck
               nixpkgs-fmt
               stylua
-              black
+              # black
               gnumake # for fzf-native
               ripgrep # for telescope live_grep
               fd # telescope optional dependency
@@ -39,13 +39,13 @@
           ];
         });
     in
-    rec {
+    {
       packages = forAllSystems (pkgs: rec {
         neovim = nvim pkgs;
         default = neovim;
       });
       overlays = {
-        neovim = _: _: { neovim = packages.x86_64-linux.default; };
+        neovim = _: _: { neovim = nvim; };
         default = self.overlays.neovim;
       };
     };
