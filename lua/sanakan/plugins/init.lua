@@ -132,7 +132,7 @@ return {
         cond = vim.fn.executable('gcc') == 1,
         build = ':TSUpdate',
         opts = {
-            ensure_installed = { 'lua', 'python', 'nix' },
+            ensure_installed = { 'lua', 'python', 'nix', 'bash', 'regex', 'markdown', 'markdown_inline' },
             highlight = { enable = true },
             incremental_selection = {
                 enable = true,
@@ -188,5 +188,27 @@ return {
                 end,
             })
         end,
+    },
+    {
+        'folke/noice.nvim',
+        event = 'VeryLazy',
+        dependencies = {
+            'MunifTanjim/nui.nvim',
+            -- 'rcarriga/nvim-notify', -- optional
+        },
+        opts = {
+            lsp = {
+                -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+                override = {
+                    ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+                    ['vim.lsp.util.stylize_markdown'] = true,
+                    ['cmp.entry.get_documentation'] = true, -- requires hrsh7th/nvim-cmp
+                },
+            },
+            -- you can enable a preset for easier configuration
+            presets = {
+                lsp_doc_border = true, -- add a border to hover docs and signature help
+            },
+        },
     },
 }
