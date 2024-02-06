@@ -40,13 +40,13 @@
         });
     in
     {
-      # packages = forAllSystems (pkgs: rec {
-      #   neovim = nvim pkgs;
-      #   default = neovim;
-      # });
-      # overlays = {
-      #   neovim = _: _: { neovim = nvim; };
-      #   default = self.overlays.neovim;
-      # };
+      packages = forAllSystems (pkgs: rec {
+        neovim = nvim pkgs;
+        default = neovim;
+      });
+      overlays = {
+        neovim = _: _: { neovim = nvim.x86_64-linux.default; };
+        default = self.overlays.neovim;
+      };
     };
 }
