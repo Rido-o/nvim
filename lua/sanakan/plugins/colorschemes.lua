@@ -22,6 +22,13 @@ return {
     },
   },
   {
+    'Shatur/neovim-ayu',
+    lazy = true,
+    opts = {
+      mirage = true,
+    },
+  },
+  {
     'franbach/miramare',
     lazy = true,
   },
