@@ -6,3 +6,5 @@ end
 map('n', 'a', function()
   print('hello')
 end, { desc = 'Print hello' })
+
+vim.opt.shiftwidth = 2
