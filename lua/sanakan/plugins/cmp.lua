@@ -35,6 +35,11 @@ M[2] = {
     local kind_icons = require('sanakan.icons').kinds
 
     cmp.setup({
+      view = {
+        entries = {
+          follow_cursor = true, -- completion menu follows cursor
+        },
+      },
       snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
