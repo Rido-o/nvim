@@ -14,9 +14,9 @@ return {
       fg = get_hex('Normal', 'fg'),
       bg = get_hex('NormalFloat', 'bg'),
       black = get_hex('Normal', 'bg'),
-      darkgray = get_hex('FoldColumn', 'bg'),
-      gray = get_hex('CursorLine', 'bg'),
-      lightgray = get_hex('FloatBorder', 'fg'),
+      darkgray = get_hex('CursorColumn', 'bg'), -- FoldColumn
+      gray = get_hex('Visual', 'bg'), -- CursorLine
+      lightgray = get_hex('Folded', 'fg'), -- FloatBorder
       skyblue = get_hex('Special', 'fg'),
       cyan = get_hex('Type', 'fg'),
       green = get_hex('diffAdded', 'fg'),
