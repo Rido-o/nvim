@@ -9,52 +9,54 @@ return {
     local function get_hex(group, id)
       return vim.fn.synIDattr(vim.fn.hlID(group), id)
     end
-
-    local colors = {
-      fg = get_hex('Normal', 'fg'),
-      bg = get_hex('NormalFloat', 'bg'),
-      black = get_hex('Normal', 'bg'),
-      darkgray = get_hex('CursorColumn', 'bg'), -- FoldColumn
-      gray = get_hex('Visual', 'bg'), -- CursorLine
-      lightgray = get_hex('Folded', 'fg'), -- FloatBorder
-      skyblue = get_hex('Special', 'fg'),
-      cyan = get_hex('Type', 'fg'),
-      green = get_hex('diffAdded', 'fg'),
-      oceanblue = get_hex('Function', 'fg'),
-      magenta = get_hex('SpecialKey', 'fg'),
-      orange = get_hex('Constant', 'fg'),
-      red = get_hex('diffRemoved', 'fg'),
-      violet = get_hex('Statement', 'fg'),
-      white = get_hex('Statusline', 'fg'),
-      yellow = get_hex('diffChange', 'fg'),
-      errors = get_hex('DiagnosticError', 'fg'),
-      warnings = get_hex('DiagnosticWarn', 'fg'),
-      info = get_hex('DiagnosticInfo', 'fg'),
-      hints = get_hex('DiagnosticHint', 'fg'),
-    }
-
-    -- local colors = {
-    --   fg = '#DCD7BA',
-    --   bg = '#16161D',
-    --   black = '#1F1F28',
-    --   darkgray = '#2A2A37',
-    --   gray = '#363646',
-    --   lightgray = '#54546D',
-    --   skyblue = '#7FB4CA',
-    --   cyan = '#7AA89F',
-    --   green = '#76946A',
-    --   oceanblue = '#7E9CD8',
-    --   magenta = '#938AA9',
-    --   orange = '#FFA066',
-    --   red = '#C34043',
-    --   violet = '#957FB8',
-    --   white = '#C8C093',
-    --   yellow = '#DCA561',
-    --   errors = '#E82424',
-    --   warnings = '#FF9E3B',
-    --   info = '#6A9589',
-    --   hints = '#658594',
-    -- }
+    if os.getenv('NVIM_COLORSCHEME') then
+      Feline_colors = {
+        fg = get_hex('Normal', 'fg'),
+        bg = get_hex('NormalFloat', 'bg'),
+        black = get_hex('Normal', 'bg'),
+        darkgray = get_hex('CursorColumn', 'bg'), -- FoldColumn
+        gray = get_hex('Visual', 'bg'), -- CursorLine
+        lightgray = get_hex('Folded', 'fg'), -- FloatBorder
+        skyblue = get_hex('Special', 'fg'),
+        cyan = get_hex('Type', 'fg'),
+        green = get_hex('diffAdded', 'fg'),
+        oceanblue = get_hex('Function', 'fg'),
+        magenta = get_hex('SpecialKey', 'fg'),
+        orange = get_hex('Constant', 'fg'),
+        red = get_hex('diffRemoved', 'fg'),
+        violet = get_hex('Statement', 'fg'),
+        white = get_hex('Statusline', 'fg'),
+        yellow = get_hex('diffChange', 'fg'),
+        errors = get_hex('DiagnosticError', 'fg'),
+        warnings = get_hex('DiagnosticWarn', 'fg'),
+        info = get_hex('DiagnosticInfo', 'fg'),
+        hints = get_hex('DiagnosticHint', 'fg'),
+      }
+    else
+      Feline_colors = {
+        fg = '#DCD7BA',
+        bg = '#16161D',
+        black = '#1F1F28',
+        darkgray = '#2A2A37',
+        gray = '#363646',
+        lightgray = '#54546D',
+        skyblue = '#7FB4CA',
+        cyan = '#7AA89F',
+        green = '#76946A',
+        oceanblue = '#7E9CD8',
+        magenta = '#938AA9',
+        orange = '#FFA066',
+        red = '#C34043',
+        violet = '#957FB8',
+        white = '#C8C093',
+        yellow = '#DCA561',
+        errors = '#E82424',
+        warnings = '#FF9E3B',
+        info = '#6A9589',
+        hints = '#658594',
+      }
+    end
+    local colors = Feline_colors
 
     local vi_mode_colors = {
       NORMAL = 'oceanblue',
