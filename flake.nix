@@ -41,12 +41,12 @@
     in
     rec {
       packages = forAllSystems (pkgs: rec {
-        neovim = nvim pkgs;
-        default = neovim;
+        sanakan-neovim = nvim pkgs;
+        default = sanakan-neovim;
       });
       overlays = {
-        neovim = _: _: { neovim = packages.x86_64-linux.default; };
-        default = self.overlays.neovim;
+        sanakan-neovim = _: _: { sanakan-neovim = packages.x86_64-linux.default; };
+        default = self.overlays.sanakan-neovim;
       };
     };
 }
