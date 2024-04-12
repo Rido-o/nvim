@@ -25,6 +25,11 @@ return {
     },
   },
   {
+    'vhyrro/luarocks.nvim',
+    priority = 1000,
+    config = true,
+  },
+  {
     'nvim-neorg/neorg', -- TODO Add local leader bindings for norg files
     -- build = ':Neorg sync-parsers',
     dependencies = {
@@ -33,6 +38,7 @@ return {
     },
     ft = 'norg',
     cmd = 'Neorg',
+    version = '*',
     opts = {
       load = {
         ['core.defaults'] = {},
