@@ -10,34 +10,30 @@
     let
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = function: nixpkgs.lib.genAttrs systems (system: function nixpkgs.legacyPackages.${system});
-      nvim = pkgs: pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped
-        (pkgs.neovimUtils.makeNeovimConfig
+      binpath = pkgs: pkgs.lib.makeBinPath (with pkgs; [
+        luajit # needed for neorg
+        sumneko-lua-language-server
+        gcc # for treesitter # should work for fzf-native but wasn't
+        nil
+        nodePackages.pyright
+        statix
+        shellcheck
+        nixpkgs-fmt
+        stylua
+        black
+        gnumake # for fzf-native
+        ripgrep # for telescope live_grep
+        fd # telescope optional dependency
+      ]);
+      nvim = pkgs: with pkgs; wrapNeovimUnstable neovim-unwrapped
+        (neovimUtils.makeNeovimConfig
           {
             customRC = ''
               set runtimepath^=${./.}
               source ${./.}/init.lua
             '';
           } // {
-          wrapperArgs = with pkgs; [
-            "--prefix"
-            "PATH"
-            ":"
-            "${lib.makeBinPath [
-              lua # needed for neorg
-              sumneko-lua-language-server
-              gcc # for treesitter # should work for fzf-native but wasn't
-              nil
-              nodePackages.pyright
-              statix
-              shellcheck
-              nixpkgs-fmt
-              stylua
-              black
-              gnumake # for fzf-native
-              ripgrep # for telescope live_grep
-              fd # telescope optional dependency
-            ]}"
-          ];
+          wrapperArgs = lib.escapeShellArgs " --prefix PATH : ${binpath pkgs}";
         });
     in
     rec {
