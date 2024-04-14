@@ -34,8 +34,8 @@ return {
     dependencies = {
       'luarocks.nvim',
     },
-    -- ft = 'norg',
-    -- cmd = 'Neorg',
+    ft = 'norg',
+    cmd = 'Neorg',
     version = '*',
     opts = {
       load = {
