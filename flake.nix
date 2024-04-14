@@ -12,6 +12,7 @@
       forAllSystems = function: nixpkgs.lib.genAttrs systems (system: function nixpkgs.legacyPackages.${system});
       binpath = pkgs: pkgs.lib.makeBinPath (with pkgs; [
         luajit # needed for neorg
+        unzip # also needed for neorg
         sumneko-lua-language-server
         gcc # for treesitter # should work for fzf-native but wasn't
         nil
