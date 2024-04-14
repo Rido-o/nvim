@@ -23,6 +23,7 @@
             "PATH"
             ":"
             "${lib.makeBinPath [
+              lua # needed for neorg
               sumneko-lua-language-server
               gcc # for treesitter # should work for fzf-native but wasn't
               nil
