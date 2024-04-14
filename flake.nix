@@ -1,16 +1,13 @@
 {
-  # https://github.com/NvChad/NvChad/issues/956 # https://github.com/redyf/nix-flake-nvchad/tree/main
-  # https://github.com/logaMaster/neovim/tree/main
-  # nix run github:Rido-o/nvim
   description = "Rido's neovim configuration";
 
   outputs = { self, ... }:
     let
       binpath = pkgs: with pkgs; lib.makeBinPath [
-        luajit # needed for neorg
-        unzip # also needed for neorg
+        luajit # neorg
+        unzip # neorg
         sumneko-lua-language-server
-        gcc # for treesitter # should work for fzf-native but wasn't
+        gcc # treesitter # should work for fzf-native but wasn't
         nil
         nodePackages.pyright
         statix
@@ -18,8 +15,8 @@
         nixpkgs-fmt
         stylua
         black
-        gnumake # for fzf-native
-        ripgrep # for telescope live_grep
+        gnumake # fzf-native
+        ripgrep # telescope live_grep
         fd # telescope optional dependency
       ];
       nvim = pkgs: with pkgs; wrapNeovimUnstable neovim-unwrapped
@@ -27,12 +24,7 @@
           {
             customRC = "source ${./.}/init.lua";
           } // {
-          wrapperArgs = [
-            "--prefix"
-            "PATH"
-            ":"
-            "${binpath pkgs}"
-          ];
+          wrapperArgs = [ "--prefix" "PATH" ":" "${binpath pkgs}" ];
         });
     in
     {

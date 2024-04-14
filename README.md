@@ -24,3 +24,12 @@
     * On windows path is '~/AppData/Local/nvim'
     * On linux path is '~/.config/nvim'
 * run neovim
+
+# Trying it out on nix
+* not possible anymore, I think because i removed package output
+* nix run github:Rido-o/nvim
+
+# References
+https://github.com/NvChad/NvChad/issues/956
+https://github.com/redyf/nix-flake-nvchad/tree/main
+https://github.com/logaMaster/neovim/tree/main
