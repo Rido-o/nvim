@@ -4,13 +4,9 @@
   # nix run github:Rido-o/nvim
   description = "Rido's neovim configuration";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-  outputs = { self, nixpkgs, ... }:
+  outputs = { self, ... }:
     let
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-      forAllSystems = function: nixpkgs.lib.genAttrs systems (system: function nixpkgs.legacyPackages.${system});
-      binpath = pkgs: pkgs.lib.makeBinPath (with pkgs; [
+      binpath = pkgs: with pkgs; lib.makeBinPath [
         luajit # needed for neorg
         unzip # also needed for neorg
         sumneko-lua-language-server
@@ -25,30 +21,19 @@
         gnumake # for fzf-native
         ripgrep # for telescope live_grep
         fd # telescope optional dependency
-      ]);
+      ];
       nvim = pkgs: with pkgs; wrapNeovimUnstable neovim-unwrapped
         (neovimUtils.makeNeovimConfig
           {
-            customRC = ''
-              set runtimepath^=${./.}
-              source ${./.}/init.lua
-            '';
+            customRC = "source ${./.}/init.lua";
           } // {
-          wrapperArgs = [
-            "--prefix"
-            "PATH"
-            ":"
-            "${binpath pkgs}"
-          ];
+          wrapperArgs = lib.escapeShellArgs neovimUtils.makeNeovimConfig.wrapperArgs
+            + " --prefix PATH : ${binpath pkgs}";
         });
     in
-    rec {
-      packages = forAllSystems (pkgs: rec {
-        sanakan-neovim = nvim pkgs;
-        default = sanakan-neovim;
-      });
+    {
       overlays = {
-        sanakan-neovim = _: _: { sanakan-neovim = packages.x86_64-linux.default; };
+        sanakan-neovim = _: prev: { sanakan-neovim = nvim prev; };
         default = self.overlays.sanakan-neovim;
       };
     };
