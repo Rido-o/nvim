@@ -27,8 +27,12 @@
           {
             customRC = "source ${./.}/init.lua";
           } // {
-          wrapperArgs = lib.escapeShellArgs neovimUtils.makeNeovimConfig.wrapperArgs
-            + " --prefix PATH : ${binpath pkgs}";
+          wrapperArgs = [
+            "--prefix"
+            "PATH"
+            ":"
+            "${binpath pkgs}"
+          ];
         });
     in
     {
