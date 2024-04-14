@@ -33,50 +33,57 @@ return {
     'nvim-neorg/neorg', -- TODO Add local leader bindings for norg files
     -- build = ':Neorg sync-parsers',
     dependencies = {
-      'nvim-lua/plenary.nvim',
+      -- 'nvim-lua/plenary.nvim',
       'luarocks.nvim',
     },
-    ft = 'norg',
-    cmd = 'Neorg',
+    -- ft = 'norg',
+    -- cmd = 'Neorg',
     version = '*',
-    opts = {
-      load = {
-        ['core.defaults'] = {},
-        ['core.concealer'] = {},
-        ['core.dirman'] = {
-          config = {
-            workspaces = {
-              notes = '~/notes',
-              wiki = '~/.cfg/wiki',
-            },
-          },
+    config = function()
+      require('neorg').setup({
+        load = {
+          ['core.defaults'] = {},
         },
-        ['core.completion'] = {
-          config = {
-            engine = 'nvim-cmp',
-          },
-        },
-        ['core.integrations.telescope'] = {},
-        ['core.keybinds'] = {
-          config = {
-            hook = function(keybinds)
-              keybinds.map('norg', 'n', '<BS>', '<C-^>') -- :e#
-            end,
-          },
-        },
-      },
-    },
-    config = function(_, opts)
-      require('neorg').setup(opts)
-      vim.api.nvim_create_autocmd('FileType', {
-        group = vim.api.nvim_create_augroup('NeorgSettings', { clear = true }),
-        pattern = 'norg',
-        callback = function()
-          vim.o.conceallevel = 2
-          vim.o.foldlevel = 7
-        end,
       })
     end,
+    -- opts = {
+    --   load = {
+    --     ['core.defaults'] = {},
+    --     ['core.concealer'] = {},
+    --     ['core.dirman'] = {
+    --       config = {
+    --         workspaces = {
+    --           notes = '~/notes',
+    --           wiki = '~/.cfg/wiki',
+    --         },
+    --       },
+    --     },
+    --     ['core.completion'] = {
+    --       config = {
+    --         engine = 'nvim-cmp',
+    --       },
+    --     },
+    --     ['core.integrations.telescope'] = {},
+    --     ['core.keybinds'] = {
+    --       config = {
+    --         hook = function(keybinds)
+    --           keybinds.map('norg', 'n', '<BS>', '<C-^>') -- :e#
+    --         end,
+    --       },
+    --     },
+    --   },
+    -- },
+    -- config = function(_, opts)
+    --   require('neorg').setup(opts)
+    --   vim.api.nvim_create_autocmd('FileType', {
+    --     group = vim.api.nvim_create_augroup('NeorgSettings', { clear = true }),
+    --     pattern = 'norg',
+    --     callback = function()
+    --       vim.o.conceallevel = 2
+    --       vim.o.foldlevel = 7
+    --     end,
+    --   })
+    -- end,
   },
 
   ---- Utilities ----
