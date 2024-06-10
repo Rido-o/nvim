@@ -9,7 +9,7 @@
         sumneko-lua-language-server
         gcc # treesitter # should work for fzf-native but wasn't
         nil
-        nodePackages.pyright
+        pyright
         statix
         shellcheck
         nixpkgs-fmt
