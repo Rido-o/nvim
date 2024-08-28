@@ -8,7 +8,8 @@
         unzip # neorg
         sumneko-lua-language-server
         gcc # treesitter # should work for fzf-native but wasn't
-        nil
+        # nil
+        nixd
         pyright
         statix
         shellcheck
