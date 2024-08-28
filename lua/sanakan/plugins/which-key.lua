@@ -1,8 +1,8 @@
 return {
   'folke/which-key.nvim',
   opts = {
-    operators = { gc = 'Comments', r = 'Replace' },
-    window = {
+    defer = { gc = 'Comments', r = 'Replace' },
+    win = {
       padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
     },
   },
@@ -17,20 +17,16 @@ return {
     vim.api.nvim_set_hl(0, 'WhichKeySeparator', { link = 'DiffAdded' })
 
     -- Give names to prefix keys
-    require('which-key').register({
+    require('which-key').add({
       -- Needed so that filetype bindings trigger whichkey
-      ['<localleader>'] = { name = 'Filetype bindings' },
-      ['<leader>'] = {
-        b = { name = 'Buffers' },
-        f = { name = 'Find' },
-        a = { name = 'Lsp' },
-        g = { name = 'Git' },
-        W = {
-          name = 'Vimwiki',
-          ['<space>'] = { name = 'Vimwiki Diary' },
-        },
-        t = { name = 'Toggle' },
-      },
+      { '<localleader>', group = 'Filetype bindings' },
+      { '<leader>b', group = 'Buffers' },
+      { '<leader>f', group = 'Find' },
+      { '<leader>a', group = 'Lsp' },
+      { '<leader>g', group = 'Git' },
+      { '<leader>t', group = 'Toggle' },
+      { '<leader>W', group = 'Vimwiki' },
+      { '<leader>W<space>', group = 'Vimwiki Diary' },
     })
   end,
 }
