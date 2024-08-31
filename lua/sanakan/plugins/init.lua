@@ -44,9 +44,10 @@ return {
         ['core.dirman'] = {
           config = {
             workspaces = {
-              notes = '~/notes',
+              notes = '~/Documents/Notes',
               wiki = '~/.cfg/wiki',
             },
+            index = 'index.norg',
           },
         },
         ['core.completion'] = {
