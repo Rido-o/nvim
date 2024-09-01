@@ -1,7 +1,7 @@
 return {
   'folke/which-key.nvim',
   opts = {
-    defer = { gc = 'Comments', r = 'Replace' },
+    -- defer = { gc = 'Comments', r = 'Replace' },
     win = {
       padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
     },
