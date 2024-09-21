@@ -10,8 +10,6 @@
         gcc # treesitter # should work for fzf-native but wasn't
         nil # nix lsp
         nixd # nix lsp
-        typescript
-        nodePackages_latest.typescript-language-server
         pyright
         statix
         shellcheck

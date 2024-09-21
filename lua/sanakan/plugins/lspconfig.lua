@@ -60,7 +60,7 @@ return {
     if vim.g.os == 'Windows' then
       servers = { 'pyright', 'lua_ls' }
     else
-      servers = { 'pyright', 'lua_ls', 'nil_ls', 'ts_ls' }
+      servers = { 'pyright', 'lua_ls', 'nil_ls' }
     end
     for _, lsp in ipairs(servers) do
       require('lspconfig')[lsp].setup({
