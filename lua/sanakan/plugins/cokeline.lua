@@ -3,7 +3,7 @@ return {
   dependencies = {
     'kyazdani42/nvim-web-devicons',
   },
-  event = 'ColorScheme',
+  event = 'BufEnter',
   config = function()
     local get_hex = require('cokeline.hlgroups').get_hl_attr
     local scripts = { '⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹' }

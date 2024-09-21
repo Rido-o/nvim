@@ -5,6 +5,7 @@ end
 
 -- Escape to clear highlighting
 map('n', '<ESC>', '<ESC>:noh<CR>', { desc = 'Clear highlighting' })
+map('n', '<BS>', '<C-o>', { desc = 'Clear highlighting' })
 
 -- Do action without yanking into "+ register
 map({ 'n', 'v' }, 'c', '"_c', { desc = 'Change' })

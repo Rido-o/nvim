@@ -4,7 +4,7 @@ return {
     'kyazdani42/nvim-web-devicons',
     'lewis6991/gitsigns.nvim', -- git branch and diffs
   },
-  event = 'ColorScheme',
+  event = 'BufEnter',
   config = function()
     local function get_hex(group, id)
       return vim.fn.synIDattr(vim.fn.hlID(group), id)

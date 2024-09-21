@@ -42,8 +42,11 @@ require('lazy').setup('sanakan.plugins', {
 
 -- Select theme -- { pywal, tokyonight, kanagawa, miramare, nordic, mellifluous }
 pcall(function()
-  local theme_name = os.getenv('NVIM_COLORSCHEME') or 'kanagawa'
-  vim.cmd('silent! colorscheme ' .. theme_name)
+  local colors = require('sanakan.base16')
+  require('base16-colorscheme').setup(colors)
+  -- local theme_name = os.getenv('NVIM_COLORSCHEME') or 'kanagawa'
+  -- local theme_name = 'base16-ayu-mirage' or 'kanagawa'
+  -- vim.cmd('silent! colorscheme ' .. theme_name)
 end)
 
 vim.api.nvim_set_hl(0, 'TabLineFill', { link = 'Tabline' })
