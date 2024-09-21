@@ -12,7 +12,7 @@
         nixd # nix lsp
         pyright
         statix
-        nodePackages.eslint # js/ts
+        eslint_d # js/ts
         shellcheck
         nixpkgs-fmt
         stylua
