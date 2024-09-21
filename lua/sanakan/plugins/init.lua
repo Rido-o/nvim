@@ -138,7 +138,18 @@ return {
     cond = vim.fn.executable('gcc') == 1,
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'lua', 'python', 'nix', 'bash', 'regex', 'markdown', 'markdown_inline' },
+      ensure_installed = {
+        'lua',
+        'python',
+        'nix',
+        'bash',
+        'regex',
+        'markdown',
+        'markdown_inline',
+        'javascript',
+        'css',
+        'typescript',
+      },
       highlight = { enable = true },
       incremental_selection = {
         enable = true,
