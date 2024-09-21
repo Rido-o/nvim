@@ -12,6 +12,7 @@
         nixd # nix lsp
         pyright
         statix
+        rslint # js/ts
         shellcheck
         nixpkgs-fmt
         stylua

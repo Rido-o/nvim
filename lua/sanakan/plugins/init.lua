@@ -192,6 +192,8 @@ return {
       require('lint').linters_by_ft = {
         nix = { 'statix' },
         sh = { 'shellcheck' },
+        javascript = { 'rslint' },
+        typescript = { 'rslint' },
       }
       vim.api.nvim_create_autocmd({ 'TextChanged', 'BufEnter', 'BufWritePost' }, {
         callback = function()
