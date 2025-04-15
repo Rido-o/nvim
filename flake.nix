@@ -15,6 +15,7 @@
         biome # js/ts
         shellcheck
         nixpkgs-fmt
+        alejandra
         stylua
         black
         gnumake # fzf-native
