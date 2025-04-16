@@ -37,17 +37,6 @@ map('n', '<Tab>', 'v><C-\\><C-N>', { desc = 'Indent Selection' })
 map('v', '<S-Tab>', '<gv', { desc = 'Unindent line' })
 map('n', '<S-Tab>', 'v<<C-\\><C-N>', { desc = 'Unindent Selection' })
 
-local function toggle_color_column()
-  if vim.o.colorcolumn ~= '80' then
-    vim.o.colorcolumn = '80'
-  else
-    vim.o.colorcolumn = '0'
-  end
-end
-
--- Toggle settings
-map('n', '<leader>tc', toggle_color_column, { desc = 'Toggle color column' })
-
 ----------------
 -- Replace
 ----------------

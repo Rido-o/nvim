@@ -1,7 +1,5 @@
 return {
   -- potential plugins { trouble.nvim, nvim-navic/barbecue, aerial.nvim, neogit, alpha-nvim, fidget.nvim, lsp-zero, heirline.nvim, diffview.nvim, nvim-spectre, searchbox.nvim, statuscol.nvim, substitute.nvim, vim-wordmotion, reticle.nvim, nvim-ufo }
-
-  ---- UI ----
   {
     'NvChad/nvim-colorizer.lua',
     config = true,
@@ -77,27 +75,6 @@ return {
       })
     end,
   },
-
-  ---- Utilities ----
-  {
-    'mbbill/undotree',
-    keys = {
-      { '<leader>U', '<CMD>UndotreeToggle<CR>', mode = 'n', desc = 'Open undo tree' },
-    },
-  },
-  {
-    'ahmedkhalf/project.nvim',
-    opts = {
-      detection_methods = { 'pattern', 'lsp' },
-      patterns = { '.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json', '>.config' },
-    },
-    config = function(_, opts)
-      if vim.g.os == 'Windows' then -- TODO check if necessary
-        table.remove(opts.patterns, 8)
-      end
-      require('project_nvim').setup(opts)
-    end,
-  },
   {
     'ggandor/leap.nvim',
     dependencies = {
@@ -118,7 +95,7 @@ return {
           require('leap').leap({ target_windows = { vim.fn.win_getid() } })
         end,
         mode = { 'n', 'x' },
-      }, -- Omnidirectional search
+      },
     },
     config = function()
       require('leap').set_default_keymaps() -- might not be needed with keys set
@@ -131,8 +108,6 @@ return {
       { '<leader>bq', '<CMD>Bdelete<CR>', desc = 'Buffer delete' },
     },
   },
-
-  ---- lSP ----
   {
     'nvim-treesitter/nvim-treesitter',
     cond = vim.fn.executable('gcc') == 1,
@@ -159,8 +134,6 @@ return {
       require('nvim-treesitter.configs').setup(opts)
     end,
   },
-
-  ---- Editor ----
   {
     'numToStr/Comment.nvim',
     keys = {
@@ -181,8 +154,6 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'black' },
-        -- nix = { 'nixpkgs_fmt' },
-        nix = { 'alejandra' },
       },
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
     },

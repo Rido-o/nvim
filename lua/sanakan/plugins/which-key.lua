@@ -23,10 +23,7 @@ return {
       { '<leader>b', group = 'Buffers' },
       { '<leader>f', group = 'Find' },
       { '<leader>a', group = 'Lsp' },
-      { '<leader>g', group = 'Git' },
       { '<leader>t', group = 'Toggle' },
-      { '<leader>W', group = 'Vimwiki' },
-      { '<leader>W<space>', group = 'Vimwiki Diary' },
     })
   end,
 }
