@@ -27,6 +27,7 @@ return {
     },
     completion = {
       list = { selection = { preselect = false }, cycle = { from_top = false } },
+      documentation = { auto_show = true, auto_show_delay_ms = 0 },
     },
   },
 }
