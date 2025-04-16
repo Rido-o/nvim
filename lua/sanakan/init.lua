@@ -10,7 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
     'clone',
     '--filter=blob:none',
     'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
+    '--branch=stable',
     lazypath,
   })
 end
@@ -40,7 +40,6 @@ require('lazy').setup('sanakan.plugins', {
   },
 })
 
--- Select theme -- { pywal, tokyonight, kanagawa, miramare, nordic, mellifluous }
 pcall(function()
   local colors = require('sanakan.base16')
   require('base16-colorscheme').setup(colors)

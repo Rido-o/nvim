@@ -1,9 +1,5 @@
 return {
   {
-    'AlphaTechnolog/pywal.nvim',
-    lazy = true,
-  },
-  {
     'folke/tokyonight.nvim',
     lazy = true,
     opts = {
@@ -30,20 +26,5 @@ return {
   },
   {
     'RRethy/base16-nvim',
-    -- lazy = true,
-  },
-  {
-    'franbach/miramare',
-    lazy = true,
-  },
-  {
-    'AlexvZyl/nordic.nvim',
-    lazy = true,
-    config = function()
-      require('nordic').setup({
-        theme = 'onedark',
-      })
-      require('nordic').load()
-    end,
   },
 }

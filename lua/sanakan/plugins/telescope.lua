@@ -26,9 +26,8 @@ return {
     { '<leader>fo', '<CMD>Telescope oldfiles<CR>', desc = 'Find recently opened file' },
     { '<leader>fh', '<CMD>Telescope command_history<CR>', desc = 'Search command history' },
     { '<leader>fc', '<CMD>Telescope colorscheme<CR>', desc = 'List colorschemes' },
-    { '<leader>fP', '<CMD>Telescope builtin<CR>', desc = 'List all pickers' },
+    { '<leader>fp', '<CMD>Telescope builtin<CR>', desc = 'List all pickers' },
     { '<leader>fd', '<CMD>Telescope diagnostics<CR>', desc = 'Show diagnostics' },
-    { '<leader>fm', '<CMD>Telescope man_pages<CR>', desc = 'Find man page' },
   },
   opts = {
     defaults = {

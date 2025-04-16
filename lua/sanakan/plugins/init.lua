@@ -1,5 +1,4 @@
 return {
-  -- potential plugins { trouble.nvim, nvim-navic/barbecue, aerial.nvim, neogit, alpha-nvim, fidget.nvim, lsp-zero, heirline.nvim, diffview.nvim, nvim-spectre, searchbox.nvim, statuscol.nvim, substitute.nvim, vim-wordmotion, reticle.nvim, nvim-ufo }
   {
     'NvChad/nvim-colorizer.lua',
     config = true,
@@ -17,7 +16,6 @@ return {
       'nvim-neorg/neorg',
       'nvim-telescope/telescope.nvim',
     },
-    -- cmd = 'Telescope neorg', -- TODO make this work
     keys = {
       { '<leader>fn', '<CMD>Telescope neorg switch_workspace<CR>', desc = 'Switch neorg workspace' },
     },

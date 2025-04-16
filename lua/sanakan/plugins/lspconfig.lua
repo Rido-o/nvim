@@ -15,7 +15,6 @@ return {
     end
 
     vim.lsp.enable({ 'pyright', 'lua_ls', 'biome', 'nixd' })
-
     vim.lsp.config('*', {
       on_attach = on_attach,
     })
