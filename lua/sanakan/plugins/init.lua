@@ -70,6 +70,7 @@ return {
   },
   {
     'kylechui/nvim-surround',
+    event = 'VeryLazy',
     config = true,
   },
   {
@@ -107,5 +108,18 @@ return {
         end,
       })
     end,
+  },
+  {
+    'gbprod/substitute.nvim',
+    opts = {
+      highlight_substituted_text = { enabled = false },
+    },
+    -- stylua: ignore
+    keys = {
+      { 'r', function() require('substitute').operator() end, mode = 'n', desc = 'Replace' },
+      { 'rr', function() require('substitute').line() end, mode = 'n', desc = 'Replace' },
+      { 'R', function() require('substitute').eol() end, mode = 'n', desc = 'Replace' },
+      { 'r', function() require('substitute').visual() end, mode = 'x', desc = 'Replace' },
+    },
   },
 }

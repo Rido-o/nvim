@@ -2,25 +2,25 @@
 require('sanakan.settings')
 require('sanakan.keymaps')
 
--- Lazy Bootstrap
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable',
-    lazypath,
-  })
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
+      { out, 'WarningMsg' },
+      { '\nPress any key to exit...' },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
 vim.opt.rtp:prepend(lazypath)
 
 -- Plugin Management
 require('lazy').setup('sanakan.plugins', {
-  defaults = {
-    version = false,
-  },
   change_detection = {
     notify = false,
   },
@@ -43,9 +43,6 @@ require('lazy').setup('sanakan.plugins', {
 pcall(function()
   local colors = require('sanakan.base16')
   require('base16-colorscheme').setup(colors)
-  -- local theme_name = os.getenv('NVIM_COLORSCHEME') or 'kanagawa'
-  -- local theme_name = 'base16-ayu-mirage' or 'kanagawa'
-  -- vim.cmd('silent! colorscheme ' .. theme_name)
 end)
 
 vim.api.nvim_set_hl(0, 'TabLineFill', { link = 'Tabline' })
