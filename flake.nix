@@ -22,6 +22,7 @@
           gnumake # fzf-native
           ripgrep # telescope live_grep
           fd # telescope optional dependency
+          luajitPackages.luarocks
         ];
     nvim = pkgs:
       with pkgs;
