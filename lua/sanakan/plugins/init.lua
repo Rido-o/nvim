@@ -1,7 +1,8 @@
 return {
   {
-    'NvChad/nvim-colorizer.lua',
-    config = true,
+    'catgoose/nvim-colorizer.lua',
+    event = 'BufReadPre',
+    opts = {},
   },
   {
     'lukas-reineke/indent-blankline.nvim',
@@ -11,99 +12,26 @@ return {
     },
   },
   {
-    'nvim-neorg/neorg-telescope',
-    dependencies = {
-      'nvim-neorg/neorg',
-      'nvim-telescope/telescope.nvim',
-    },
-    keys = {
-      { '<leader>fn', '<CMD>Telescope neorg switch_workspace<CR>', desc = 'Switch neorg workspace' },
-    },
-  },
-  {
-    'vhyrro/luarocks.nvim',
-    priority = 1000,
-    config = true,
-  },
-  {
-    'nvim-neorg/neorg', -- TODO Add local leader bindings for norg files
-    dependencies = {
-      'luarocks.nvim',
-    },
-    ft = 'norg',
-    cmd = 'Neorg',
-    version = '*',
+    'folke/flash.nvim',
+    event = 'VeryLazy',
     opts = {
-      load = {
-        ['core.defaults'] = {},
-        ['core.concealer'] = {},
-        ['core.dirman'] = {
-          config = {
-            workspaces = {
-              notes = '~/Documents/Notes',
-              wiki = '~/.cfg/wiki',
-            },
-            index = 'index.norg',
-          },
-        },
-        ['core.completion'] = {
-          config = {
-            engine = 'nvim-cmp',
-          },
-        },
-        ['core.integrations.telescope'] = {},
-        ['core.keybinds'] = {
-          config = {
-            hook = function(keybinds)
-              keybinds.map('norg', 'n', '<BS>', '<C-^>') -- :e#
-            end,
-          },
-        },
-      },
+      highlight = { backdrop = false },
     },
-    config = function(_, opts)
-      require('neorg').setup(opts)
-      vim.api.nvim_create_autocmd('FileType', {
-        group = vim.api.nvim_create_augroup('NeorgSettings', { clear = true }),
-        pattern = 'norg',
-        callback = function()
-          vim.o.conceallevel = 2
-          vim.o.foldlevel = 7
-        end,
-      })
-    end,
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    },
   },
   {
-    'ggandor/leap.nvim',
-    dependencies = {
-      -- can repeat.vim for . functionality
-      'ggandor/flit.nvim', -- enhanced f/t motions
-      config = true,
-      keys = {
-        { 'f', mode = { 'n', 'x' } },
-        { 'F', mode = { 'n', 'x' } },
-        { 't', mode = { 'n', 'x' } },
-        { 'T', mode = { 'n', 'x' } },
-      },
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    opts = {
+      bufdelete = { enabled = true },
     },
+    -- stylua: ignore
     keys = {
-      {
-        's',
-        function()
-          require('leap').leap({ target_windows = { vim.fn.win_getid() } })
-        end,
-        mode = { 'n', 'x' },
-      },
-    },
-    config = function()
-      require('leap').set_default_keymaps() -- might not be needed with keys set
-    end,
-  },
-  {
-    'famiu/bufdelete.nvim',
-    cmd = 'Bdelete',
-    keys = {
-      { '<leader>bq', '<CMD>Bdelete<CR>', desc = 'Buffer delete' },
+      { '<leader>bd', function() Snacks.bufdelete() end, desc = 'Delete Buffer' },
     },
   },
   {
@@ -143,6 +71,16 @@ return {
   {
     'kylechui/nvim-surround',
     config = true,
+  },
+  {
+    'windwp/nvim-autopairs',
+    opts = {
+      check_ts = true,
+      ts_config = {
+        lua = { 'string' }, -- it will not add a pair on that treesitter node
+      },
+    },
+    event = 'InsertEnter',
   },
   {
     'stevearc/conform.nvim',
