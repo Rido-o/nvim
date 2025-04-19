@@ -1,5 +1,8 @@
 return {
   {
+    'RRethy/base16-nvim',
+  },
+  {
     'catgoose/nvim-colorizer.lua',
     event = 'BufReadPre',
     opts = {},
@@ -120,6 +123,12 @@ return {
       { 'rr', function() require('substitute').line() end, mode = 'n', desc = 'Replace' },
       { 'R', function() require('substitute').eol() end, mode = 'n', desc = 'Replace' },
       { 'r', function() require('substitute').visual() end, mode = 'x', desc = 'Replace' },
+    },
+  },
+  {
+    'mbbill/undotree',
+    keys = {
+      { '<leader>fu', '<CMD>UndotreeToggle<CR>', mode = 'n', desc = 'Open undo tree' },
     },
   },
 }

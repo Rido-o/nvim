@@ -5,12 +5,6 @@ return {
     'nvim-lua/popup.nvim',
     'nvim-lua/plenary.nvim',
     {
-      'debugloop/telescope-undo.nvim',
-      keys = {
-        { '<leader>fu', '<cmd>Telescope undo<cr>', desc = 'undo history' },
-      },
-    },
-    {
       'nvim-telescope/telescope-fzf-native.nvim',
       build = 'make', -- would preferrably be gcc
       cond = vim.fn.executable('make') == 1,
@@ -66,13 +60,11 @@ return {
         override_file_sorter = true,
         case_mode = 'smart_case',
       },
-      undo = {},
     },
   },
   config = function(_, opts)
     require('telescope').setup(opts)
     pcall(require('telescope').load_extension, 'fzf')
-    pcall(require('telescope').load_extension, 'undo')
 
     local ts_sp1 = vim.api.nvim_get_hl_by_name('String', true).foreground
     local ts_sp2 = vim.api.nvim_get_hl_by_name('Exception', true).foreground
