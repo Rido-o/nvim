@@ -14,6 +14,7 @@
           pyright
           statix
           biome # js/ts
+          nodePackages.prettier
           shellcheck
           nixpkgs-fmt
           alejandra
