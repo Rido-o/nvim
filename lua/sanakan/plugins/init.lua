@@ -53,6 +53,9 @@ return {
         'javascript',
         'css',
         'typescript',
+        'tsx',
+        'scss',
+        'norg',
       },
       highlight = { enable = true },
       incremental_selection = {
