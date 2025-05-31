@@ -1,7 +1,13 @@
 {
   description = "Rido's neovim configuration";
 
-  outputs = {self, ...}: let
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  }: let
     binpath = pkgs:
       with pkgs;
         lib.makeBinPath [
@@ -36,6 +42,10 @@
             wrapperArgs = ["--prefix" "PATH" ":" "${binpath pkgs}"];
           });
   in {
+    packages.x86_64-linux = {
+      sanakan-neovim = nvim nixpkgs.legacyPackages.x86_64-linux;
+      default = self.packages.sanakan-neovim;
+    };
     overlays = {
       sanakan-neovim = _: prev: {sanakan-neovim = nvim prev;};
       default = self.overlays.sanakan-neovim;
