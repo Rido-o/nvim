@@ -1,22 +1,5 @@
 # Installation guide
 
-## Prequisuites
-### Bare minimum
-* neovim
-* git
-### General
-* Hack-nerd - For font on gui nvim
-* Lazygit - For git functionality
-#### Keybinds
-* python
-* hyperfine
-### Plugins
-* gcc - For treesitter & telescope-fzf support
-* ripgrep & fd - For telescope functionality
-#### Mason
-* pip
-#### Lspconfig - Installed through mason except on nixos
-
 # General installation guide
 * Install neovim
 * Install prerequisuites
@@ -27,8 +10,3 @@
 
 # Trying it out on nix
 * nix run github:Rido-o/nvim
-
-# References
-https://github.com/NvChad/NvChad/issues/956
-https://github.com/redyf/nix-flake-nvchad/tree/main
-https://github.com/logaMaster/neovim/tree/main

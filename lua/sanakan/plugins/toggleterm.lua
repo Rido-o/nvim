@@ -27,24 +27,5 @@ return {
       pattern = 'term://*toggleterm#*',
       command = 'lua set_terminal_keymaps()',
     })
-
-    -- Lazygit
-    if vim.fn.executable('lazygit') then
-      local terminal = require('toggleterm.terminal').Terminal
-      local lazygit = terminal:new({
-        cmd = 'lazygit',
-        hidden = true,
-        direction = 'float',
-        on_open = function(_)
-          vim.cmd('startinsert!')
-        end,
-      })
-
-      function Lazygit_toggle()
-        lazygit:toggle()
-      end
-
-      vim.api.nvim_set_keymap('n', '<leader>`', '<CMD>lua Lazygit_toggle()<CR>', { desc = 'Toggle lazygit' })
-    end
   end,
 }
