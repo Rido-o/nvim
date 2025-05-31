@@ -26,7 +26,6 @@
 * run neovim
 
 # Trying it out on nix
-* not possible anymore, I think because i removed package output
 * nix run github:Rido-o/nvim
 
 # References

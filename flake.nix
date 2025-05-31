@@ -44,7 +44,7 @@
   in {
     packages.x86_64-linux = {
       sanakan-neovim = nvim nixpkgs.legacyPackages.x86_64-linux;
-      default = self.packages.sanakan-neovim;
+      default = self.packages.x86_64-linux.sanakan-neovim;
     };
     overlays = {
       sanakan-neovim = _: prev: {sanakan-neovim = nvim prev;};
