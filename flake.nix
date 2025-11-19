@@ -13,7 +13,7 @@
         lib.makeBinPath [
           luajit # neorg
           unzip # neorg
-          sumneko-lua-language-server
+          lua-language-server
           gcc # treesitter # should work for fzf-native but wasn't
           nil # nix lsp
           nixd # nix lsp
